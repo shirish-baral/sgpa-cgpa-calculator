@@ -1,0 +1,132 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f7;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    transition: all 0.3s ease-in-out;
+}
+.container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 2.5rem;
+}
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+select, input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+select:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background-color: #e8f5e9;
+}
+.button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: #45a049;
+}
+.button:active {
+    background-color: #388e3c;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.1rem;
+}
+th {
+    background-color: #f1f1f1;
+    color: #333;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
+.result {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+.hidden {
+    display: none;
+}
+.grade {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+}
+.grade:focus {
+    background-color: #e8f5e9;
+    border-color: #4CAF50;
+}
+.semester-dropdown {
+    font-size: 1.1rem;
+}
+.sgpa-box {
+    background-color: #e8f5e9;
+    border: 1px solid #4CAF50;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    display: none;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    select, input[type="number"], .button {
+        font-size: 1rem;
+    }
+}
