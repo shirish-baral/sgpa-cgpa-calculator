@@ -1,56 +1,86 @@
+/* Main background */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f4f7;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
+
+.main-background {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 50px 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Container for form */
 .container {
     background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    width: 100%;
-    max-width: 900px;
-    padding: 30px;
-    transition: all 0.3s ease-in-out;
+    padding: 20px;
+    width: 300px; /* Making the form container smaller */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.container:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
+
+/* Title and Heading styles */
 h1 {
     text-align: center;
-    color: #4CAF50;
-    font-size: 2.5rem;
+    color: #ff7e5f;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
 }
+
 h2 {
     color: #333;
-    margin-bottom: 15px;
     font-size: 1.2rem;
 }
-select, input[type="number"] {
+
+/* Dropdown for semester selection */
+select {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fafafa;
-    box-sizing: border-box;
     font-size: 1rem;
+    background-color: #f9f9f9;
     transition: border 0.3s ease, background-color 0.3s ease;
 }
-select:focus, input[type="number"]:focus {
+
+/* Focus effect for the dropdown */
+select:focus {
     outline: none;
-    border-color: #4CAF50;
-    background-color: #e8f5e9;
+    border-color: #ff7e5f;
+    background-color: #fff8f0;
 }
+
+/* Input for grades */
+.grade {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin: 8px 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.grade:focus {
+    background-color: #fff8f0;
+    border-color: #ff7e5f;
+}
+
+/* Calculate button */
 .button {
     display: block;
     width: 100%;
-    padding: 15px;
-    background-color: #4CAF50;
+    padding: 12px;
+    background-color: #ff7e5f;
     color: white;
     font-size: 1.2rem;
     border: none;
@@ -59,74 +89,54 @@ select:focus, input[type="number"]:focus {
     margin-top: 20px;
     transition: background-color 0.3s ease;
 }
+
 .button:hover {
-    background-color: #45a049;
+    background-color: #ff5722;
 }
+
 .button:active {
-    background-color: #388e3c;
+    background-color: #e64a19;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-    font-size: 1.1rem;
-}
-th {
-    background-color: #f1f1f1;
-    color: #333;
-}
-tr:hover {
-    background-color: #f1f1f1;
-}
+
+/* Result box */
 .result {
     font-size: 1.5rem;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 15px;
     font-weight: bold;
-    color: #4CAF50;
+    color: #ff7e5f;
 }
-.hidden {
-    display: none;
-}
-.grade {
-    width: 80%;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f1f1f1;
-    border: 1px solid #ddd;
-}
-.grade:focus {
-    background-color: #e8f5e9;
-    border-color: #4CAF50;
-}
-.semester-dropdown {
-    font-size: 1.1rem;
-}
+
+/* SGPA box */
 .sgpa-box {
-    background-color: #e8f5e9;
-    border: 1px solid #4CAF50;
+    background-color: #ffecd1;
+    border: 1px solid #ff7e5f;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 25px;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 5px;
     display: none;
+    color: #ff7e5f;
 }
+
+/* Responsive design */
 @media (max-width: 600px) {
     .container {
-        padding: 20px;
+        width: 90%;
+        padding: 15px;
     }
+
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
-    select, input[type="number"], .button {
+
+    .button {
         font-size: 1rem;
+    }
+
+    select, input[type="number"] {
+        font-size: 0.9rem;
     }
 }
