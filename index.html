@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGPA Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="main-background">
+    <div class="container">
+        <h1>SGPA Calculator</h1>
+        <form id="sgpaForm">
+            <h2>Select Semester</h2>
+            <select id="semesterSelect" onchange="showSemesterSubjects()" class="semester-dropdown">
+                <option value="" selected disabled>Select a semester</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+            </select>
+
+            <div id="semesters">
+                <!-- Semester subjects will be dynamically shown here -->
+            </div>
+
+            <button type="button" class="button hidden" id="calculateButton" onclick="calculateSGPA()">Calculate SGPA</button>
+            <div id="result" class="result"></div>
+        </form>
+
+        <div id="sgpaBox" class="sgpa-box">
+            Your SGPA is: <span id="sgpaValue"></span>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
