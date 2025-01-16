@@ -9,7 +9,7 @@ body {
     flex-direction: column; /* Ensure elements are stacked vertically */
     justify-content: flex-start; /* Align the content from top */
     align-items: center; /* Center the content horizontally */
-    height: 100vh;   
+    height: 100vh;
 }
 
 /* Improved Heading Style */
@@ -86,9 +86,35 @@ button:hover {
     color: #007BFF;
     font-weight: bold;
 }
-/* Add scrolling functionality to the semesters list */
-#semesters {
-    max-height: 300px; /* Set a fixed height for the subject list */
-    overflow-y: auto;  /* Allow vertical scrolling when content exceeds max height */
-    margin-top: 10px;
+
+/* Grade Table Styles */
+.grade-table {
+    margin-top: 20px;
+    width: 70%;
+    text-align: center;
+    border-collapse: collapse;
 }
+
+.grade-table th, .grade-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.grade-table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Subject list scrolling */
+#semesters {
+    max-height: 300px; /* Set a max height for the list */
+    overflow-y: auto; /* Allow scrolling when content overflows */
+    margin-top: 15px;
+}
+
+/* Ensure the table width adjusts well */
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
