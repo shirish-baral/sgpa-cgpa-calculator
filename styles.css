@@ -1,142 +1,86 @@
-/* Main background */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-.main-background {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    padding: 50px 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Container for form */
 .container {
-    background-color: #ffffff;
-    border-radius: 10px;
+    max-width: 600px;
+    margin: 50px auto;
     padding: 20px;
-    width: 300px; /* Making the form container smaller */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
 }
 
-/* Title and Heading styles */
 h1 {
-    text-align: center;
-    color: #ff7e5f;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+    font-size: 2em;
+    color: #007BFF;
 }
 
 h2 {
-    color: #333;
-    font-size: 1.2rem;
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
-/* Dropdown for semester selection */
 select {
+    padding: 8px;
+    font-size: 1em;
+    margin-bottom: 20px;
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-    transition: border 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
 }
 
-/* Focus effect for the dropdown */
-select:focus {
-    outline: none;
-    border-color: #ff7e5f;
-    background-color: #fff8f0;
-}
-
-/* Input for grades */
-.grade {
-    width: 80%;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    margin: 8px 0;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.grade:focus {
-    background-color: #fff8f0;
-    border-color: #ff7e5f;
-}
-
-/* Calculate button */
-.button {
-    display: block;
+table {
     width: 100%;
-    padding: 12px;
-    background-color: #ff7e5f;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+td {
+    background-color: #f4f4f4;
+}
+
+input {
+    width: 60px;
+    padding: 4px;
+    font-size: 1em;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
     color: white;
-    font-size: 1.2rem;
     border: none;
     border-radius: 5px;
+    font-size: 1em;
     cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
 }
 
-.button:hover {
-    background-color: #ff5722;
+button:hover {
+    background-color: #0056b3;
 }
 
-.button:active {
-    background-color: #e64a19;
-}
-
-/* Result box */
 .result {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-top: 15px;
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: #333;
     font-weight: bold;
-    color: #ff7e5f;
-}
-
-/* SGPA box */
-.sgpa-box {
-    background-color: #ffecd1;
-    border: 1px solid #ff7e5f;
-    padding: 20px;
-    margin-top: 25px;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 5px;
-    display: none;
-    color: #ff7e5f;
-}
-
-/* Responsive design */
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .button {
-        font-size: 1rem;
-    }
-
-    select, input[type="number"] {
-        font-size: 0.9rem;
-    }
 }
