@@ -1,0 +1,99 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Light blue background for the homepage */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container styles */
+.container {
+    width: 400px; /* Reduced width for the SGPA Calculator */
+    padding: 20px;
+    background-color: #ffffff; /* White background for the calculator */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 2em;
+    color: #007BFF; /* Blue color for the main heading */
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Select dropdown styles */
+select {
+    padding: 8px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #007BFF; /* Blue header for the table */
+    color: #fff;
+}
+
+td {
+    background-color: #f9f9f9; /* Light gray rows for readability */
+}
+
+/* Input field styles */
+input {
+    width: 60px;
+    padding: 4px;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result display styles */
+.result {
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: #007BFF;
+    font-weight: bold;
+}
