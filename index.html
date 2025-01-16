@@ -1,105 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SGPA & CGPA Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="heading.css" />
+  </head>
+  <body>
     <!-- Improved Heading -->
-    <h1 class="page-heading">SGPA and CGPA Calculator for BTech(CSE) at KIIT University</h1>
+    <div class="header">
+      <div class="logo">
+        <a href="#"><img src="./images/logo.webp" alt="Logo" class="logo" /></a>
+      </div>
 
+      <div class="title">
+        <div>SGPA and CGPA Calculator</div>
+      </div>
+      <div class="github-icon">
+        <a href="https://github.com/shirish-baral/sgpa-cgpa-calculator.git" target="_blank">
+          <img src="./images/github.webp" alt="GitHub" />
+        </a>
+      </div>
+    </div>
+    <div class="below-text">For BTech(CSE) at KIIT University</div>
     <div class="main-container">
-        <!-- SGPA Calculator -->
-        <div class="container" id="sgpa-calculator">
-            <h2>SGPA Calculator</h2>
-            <form id="sgpaForm">
-                <h3>Select Semester</h3>
-                <select id="semesterSelect" onchange="showSemesterSubjects()">
-                    <option value="" selected disabled>Select a semester</option>
-                    <option value="1">Semester 1</option>
-                    <option value="2">Semester 2</option>
-                    <option value="3">Semester 3</option>
-                    <option value="4">Semester 4</option>
-                    <option value="5">Semester 5</option>
-                    <option value="6">Semester 6</option>
-                    <option value="7">Semester 7</option>
-                    <option value="8">Semester 8</option>
-                </select>
-                <div id="semesters"></div>
-                <button type="button" id="calculateButton" onclick="calculateSGPA()">Calculate SGPA</button>
-                <div id="result" class="result"></div>
-            </form>
-        </div>
+      <!-- SGPA Calculator -->
+      <div class="container" id="sgpa-calculator">
+        <h2>SGPA Calculator</h2>
+        <form id="sgpaForm">
+          <h3>Select Semester</h3>
+          <select id="semesterSelect" onchange="showSemesterSubjects()">
+            <option value="" selected disabled>Select a semester</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+            <option value="7">Semester 7</option>
+            <option value="8">Semester 8</option>
+          </select>
+          <div id="semesters"></div>
+          <button type="button" id="calculateButton" onclick="calculateSGPA()">
+            Calculate SGPA
+          </button>
+          <div id="result" class="result"></div>
+        </form>
+      </div>
 
-        <!-- CGPA Calculator -->
-        <div class="container" id="cgpa-calculator">
-            <h2>CGPA Calculator</h2>
-            <form id="cgpaForm">
-                <div>
-                    <label for="previousCgpa">Current CGPA (up to previous semester):</label>
-                    <input type="number" id="previousCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.29 up to 4th semester">
-                </div>
-                <div>
-                    <label for="previousSemesters">Total semester completed:</label>
-                    <input type="number" id="previousSemesters" min="1" max="8" placeholder="e.g., 4">
-                </div>
-                <div>
-                    <label for="newSemesterSgpa">SGPA for current semester:</label>
-                    <input type="number" id="newSemesterSgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72 for 5th semester">
-                </div>
-                <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
-                <div id="cgpaResult" class="result"></div>
-            </form>
-        </div>
+      <!-- CGPA Calculator -->
+      <div class="container" id="cgpa-calculator">
+        <h2>CGPA Calculator</h2>
+        <form id="cgpaForm">
+          <div>
+            <label for="previousCgpa"
+              >Current CGPA (up to previous semester):</label
+            >
+            <input
+              type="number"
+              id="previousCgpa"
+              step="0.01"
+              min="0"
+              max="10"
+              placeholder="e.g., 9.29 up to 4th semester"
+            />
+          </div>
+          <div>
+            <label for="previousSemesters">Total semester completed:</label>
+            <input
+              type="number"
+              id="previousSemesters"
+              min="1"
+              max="8"
+              placeholder="e.g., 4"
+            />
+          </div>
+          <div>
+            <label for="newSemesterSgpa">SGPA for current semester:</label>
+            <input
+              type="number"
+              id="newSemesterSgpa"
+              step="0.01"
+              min="0"
+              max="10"
+              placeholder="e.g., 9.72 for 5th semester"
+            />
+          </div>
+          <button type="button" onclick="calculateCGPA()">
+            Calculate CGPA
+          </button>
+          <div id="cgpaResult" class="result"></div>
+        </form>
+      </div>
     </div>
 
     <!-- Grade Table -->
     <h2>Grade Scale</h2>
     <table border="1" class="grade-table">
-        <thead>
-            <tr>
-                <th>Grade Range</th>
-                <th>Letter Grade</th>
-                <th>Grade Points</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>90 - 100</td>
-                <td>O</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>80 - 89</td>
-                <td>E</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>70 - 79</td>
-                <td>A</td>
-                <td>8</td>
-            </tr>
-            <tr>
-                <td>60 - 69</td>
-                <td>B</td>
-                <td>7</td>
-            </tr>
-            <tr>
-                <td>50 - 59</td>
-                <td>C</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>40 - 49</td>
-                <td>D</td>
-                <td>5</td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Grade Range</th>
+          <th>Letter Grade</th>
+          <th>Grade Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>90 - 100</td>
+          <td>O</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>80 - 89</td>
+          <td>E</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>70 - 79</td>
+          <td>A</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>60 - 69</td>
+          <td>B</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>50 - 59</td>
+          <td>C</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>40 - 49</td>
+          <td>D</td>
+          <td>5</td>
+        </tr>
+      </tbody>
     </table>
 
-    
+    <footer class="footer">
+        <p>&copy; ShirishBaral 2025</p>
+        <p>This project is <a href="https://github.com/shirish-baral/sgpa-cgpa-calculator.git" target="_blank">open source</a>. Contributions are welcome!</p>
+    </footer>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
