@@ -72,3 +72,29 @@ button:hover {
     color: #007BFF;
     font-weight: bold;
 }
+
+/* Scrollable container for semester subjects */
+#semesters {
+    max-height: 300px; /* Set a fixed height for the container */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    margin-top: 10px;
+    border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+    padding: 10px; /* Optional: Add some padding */
+}
+
+/* Table styling inside the scrollable area */
+#semesters table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#semesters th, #semesters td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+#semesters th {
+    background-color: #f0f0f0; /* Light grey background for headers */
+}
