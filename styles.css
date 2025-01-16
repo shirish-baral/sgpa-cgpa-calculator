@@ -1,0 +1,74 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa; /* Light teal background for the homepage */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container to align calculators side by side */
+.main-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Calculator containers */
+.container {
+    width: 350px; /* Same reduced width for both calculators */
+    padding: 20px;
+    background-color: #ffffff; /* White background for calculators */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Headings */
+h1 {
+    font-size: 1.8em;
+    color: #007BFF; /* Blue color for headings */
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Input fields */
+input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result styles */
+.result {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #007BFF;
+    font-weight: bold;
+}
