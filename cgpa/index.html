@@ -11,17 +11,17 @@
         <div id="cgpa-container">
             <h1>CGPA Calculator</h1>
             <form id="cgpaForm">
-                <label for="previousCgpa">Previous CGPA:</label>
+                <label for="currentSemester">Current Semester (e.g., 5th):</label>
+                <input type="number" id="currentSemester" min="1" max="8" required>
+
+                <label for="currentSgpa">SGPA for Current Semester (e.g., 9.72):</label>
+                <input type="number" id="currentSgpa" step="0.01" min="0" max="10" required>
+
+                <label for="previousCgpa">CGPA until Previous Semester (e.g., 9.29):</label>
                 <input type="number" id="previousCgpa" step="0.01" min="0" max="10" required>
 
-                <label for="previousCredits">Total Credits Completed:</label>
-                <input type="number" id="previousCredits" step="1" min="0" required>
-
-                <label for="newSgpa">SGPA for Current Semester:</label>
-                <input type="number" id="newSgpa" step="0.01" min="0" max="10" required>
-
-                <label for="newCredits">Credits for Current Semester:</label>
-                <input type="number" id="newCredits" step="1" min="0" required>
+                <label for="currentCredits">Credits for Current Semester:</label>
+                <input type="number" id="currentCredits" step="1" min="0" required>
 
                 <button type="button" onclick="calculateCgpa()">Calculate CGPA</button>
             </form>
