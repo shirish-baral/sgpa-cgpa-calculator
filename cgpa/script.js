@@ -1,5 +1,16 @@
 // JavaScript for CGPA and SGPA Calculators
 
+const semesterCredits = {
+    1: 21,
+    2: 20,
+    3: 21,
+    4: 24,
+    5: 22,
+    6: 24,
+    7: 15,
+    8: 15
+};
+
 const semestersData = {
     1: [
         { name: 'Physics', credits: 3 },
@@ -58,7 +69,7 @@ const semestersData = {
         { name: 'K-Explore Open Elective-I', credits: 1 },
     ],
     6: [
-        { name: 'HASS Elective-III', credits: 3 },
+        { name: 'HASS Elective- III', credits: 3 },
         { name: 'Machine Learning', credits: 4 },
         { name: 'Artificial Intelligence', credits: 3 },
         { name: 'Professional Elective-III', credits: 3 },
@@ -72,7 +83,7 @@ const semestersData = {
         { name: 'Professional Elective-IV', credits: 3 },
         { name: 'Engineering Professional Practice', credits: 2 },
         { name: 'Open Elective-III/ (MI-II)', credits: 3 },
-        { name: 'Project-I', credits: 5 },
+        { name: 'Project- I', credits: 5 },
         { name: 'Internship', credits: 2 },
         { name: 'MI- (Computing Laboratory)', credits: 2 },
     ],
@@ -81,6 +92,27 @@ const semestersData = {
         { name: 'Research Project', credits: 12 },
     ],
 };
+
+function calculateCgpa() {
+    const currentSemester = parseInt(document.getElementById('currentSemester').value);
+    const currentSgpa = parseFloat(document.getElementById('currentSgpa').value);
+    const previousCgpa = parseFloat(document.getElementById('previousCgpa').value);
+    const currentCredits = parseInt(document.getElementById('currentCredits').value);
+
+    if (!isNaN(currentSemester) && !isNaN(currentSgpa) && !isNaN(previousCgpa) && !isNaN(currentCredits)) {
+        // Get the total credits for the current semester
+        const totalCreditsPrevious = semesterCredits[currentSemester - 1];
+        const totalCredits = totalCreditsPrevious + currentCredits;
+
+        // Calculate new CGPA
+        const weightedSum = (previousCgpa * totalCreditsPrevious) + (currentSgpa * currentCredits);
+        const newCgpa = (weightedSum / totalCredits).toFixed(2);
+
+        document.getElementById('cgpaResult').textContent = `Your Updated CGPA is: ${newCgpa}`;
+    } else {
+        document.getElementById('cgpaResult').textContent = 'Please fill in all fields correctly.';
+    }
+}
 
 function showSemesterSubjects() {
     const semesterSelect = document.getElementById('semesterSelect');
@@ -122,21 +154,4 @@ function calculateSgpa() {
 
     const sgpa = totalCredits > 0 ? (weightedSum / totalCredits).toFixed(2) : 0;
     document.getElementById('sgpaResult').textContent = `Your SGPA is: ${sgpa}`;
-}
-
-function calculateCgpa() {
-    const previousCgpa = parseFloat(document.getElementById('previousCgpa').value);
-    const previousCredits = parseInt(document.getElementById('previousCredits').value);
-    const newSgpa = parseFloat(document.getElementById('newSgpa').value);
-    const newCredits = parseInt(document.getElementById('newCredits').value);
-
-    if (!isNaN(previousCgpa) && !isNaN(previousCredits) && !isNaN(newSgpa) && !isNaN(newCredits)) {
-        const totalCredits = previousCredits + newCredits;
-        const weightedSum = (previousCgpa * previousCredits) + (newSgpa * newCredits);
-        const newCgpa = (weightedSum / totalCredits).toFixed(2);
-
-        document.getElementById('cgpaResult').textContent = `Your CGPA is: ${newCgpa}`;
-    } else {
-        document.getElementById('cgpaResult').textContent = 'Please fill in all fields correctly.';
-    }
 }
