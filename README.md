@@ -1,49 +1,49 @@
-# SGPA Calculator
+# SGPA & CGPA Calculator
 
-This is an SGPA (Semester Grade Point Average) calculator designed to help students calculate their SGPA based on the grades and credits for their semester courses. The application allows users to select their semester, input their grades, and calculate their SGPA quickly.
+This is a simple **SGPA & CGPA Calculator** web app that allows students to calculate their SGPA (Semester Grade Point Average) and CGPA (Cumulative Grade Point Average) based on their semester-wise grades. The calculator includes a user-friendly interface that allows the user to select subjects, input grades, and compute the SGPA and CGPA.
 
 ## Features
-
-- Select a semester (1-8) and input grades for each course.
-- Automatically calculates the SGPA based on input grades and course credits.
-- Attractive, user-friendly interface with background colors, smooth interactions, and visual effects.
-
-## Demo
-
-You can try out the SGPA calculator directly by cloning the repository and opening the `index.html` file in a browser.
+- **SGPA Calculator**: 
+  - Allows users to select their semester (from Semester 1 to Semester 8).
+  - Users can choose between subjects like "Scientific and Technical Writing" and "HASS Elective II" in Semester 3 and 4.
+  - Input grades (0-10) for each subject.
+  
+- **CGPA Calculator**: 
+  - Allows users to input their current CGPA and the number of previous semesters.
+  - Computes the CGPA by including the SGPA of the current semester.
 
 ## How to Use
+1. **Select a Semester**: 
+   - Use the dropdown in the SGPA calculator to select the desired semester.
+   - Enter the grades for the selected subjects.
+   
+2. **Calculate SGPA**: 
+   - After selecting the subjects and entering the grades, click on "Calculate SGPA" to see the SGPA result for the semester.
 
-1. Clone or download this repository to your local machine.
-2. Open the project folder and locate the `index.html` file.
-3. Double-click on `index.html` to open the SGPA Calculator in your default web browser.
-4. Select your semester from the dropdown menu.
-5. Enter the grades (between 0 to 10) for each subject in that semester.
-6. Click the "Calculate SGPA" button to see your calculated SGPA.
+3. **Calculate CGPA**: 
+   - Enter your previous CGPA, the number of previous semesters, and the SGPA for the current semester.
+   - Click on "Calculate CGPA" to get your overall CGPA.
 
-### Example:
+4. **Choose Between Subjects**:
+   - In Semester 3 and 4, you can choose between **Scientific and Technical Writing** (Credits: 2) and **HASS Elective II** (Credits: 3).
+   - The subject you don't choose will be available in the next semester.
 
-- If your grades for Semester 1 are:
-  - Physics: 8
-  - Differential Equations and Linear Algebra: 9
-  - Engineering Lab: 7
-  - SGPA will be calculated automatically when you click the "Calculate SGPA" button.
+## Live Demo
 
-## Files Included
+You can access the live demo of the **SGPA & CGPA Calculator** at:
 
-- `index.html`: The main HTML file for the SGPA Calculator.
-- `styles.css`: The CSS file responsible for styling and UI elements.
-- `script.js`: JavaScript file that handles the functionality of the calculator.
-- `README.md`: Documentation for this repository.
+[https://shirish-baral.github.io/sgpa-cgpa-calculator/](https://shirish-baral.github.io/sgpa-cgpa-calculator/)
 
-## Installation
+## Technologies Used
+- **HTML**: Structure of the webpage.
+- **CSS**: Styling the page with a clean and responsive layout.
+- **JavaScript**: Handles the functionality of calculating SGPA and CGPA, as well as managing the subject choices and grade inputs.
 
-### Prerequisites:
+## How to Run Locally
 
-- A web browser (e.g., Chrome, Firefox, Safari).
+If you want to run the project locally on your machine, follow these steps:
 
-### Steps to Run the Project:
+1. **Clone the repository**:
 
-1. Clone this repository to your local machine using the following command:
    ```bash
-   git clone https://github.com/<shirish-baral>/sgpa-calculator.git
+   git clone https://github.com/shirish-baral/sgpa-cgpa-calculator.git
