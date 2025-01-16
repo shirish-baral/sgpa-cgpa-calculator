@@ -98,3 +98,13 @@ button:hover {
 #semesters th {
     background-color: #f0f0f0; /* Light grey background for headers */
 }
+/* Heading styles */
+.page-heading {
+    text-align: center;
+    font-size: 2em;
+    color: #007BFF; /* Blue color for the heading */
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase; /* To make it more formal */
+}
+
