@@ -154,7 +154,7 @@ function calculateCGPA() {
 
     const totalSemesters = previousSemesters + 1;
     const cgpa = ((previousCgpa * previousSemesters) + newSemesterSgpa) / totalSemesters;
-    document.getElementById('cgpaResult').textContent = `CGPA: ${cgpa.toFixed(2)}`;
+    document.getElementById('cgpaResult').textContent = `New CGPA: ${cgpa.toFixed(2)}`;
 }
 
 
