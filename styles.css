@@ -86,4 +86,9 @@ button:hover {
     color: #007BFF;
     font-weight: bold;
 }
-
+/* Add scrolling functionality to the semesters list */
+#semesters {
+    max-height: 300px; /* Set a fixed height for the subject list */
+    overflow-y: auto;  /* Allow vertical scrolling when content exceeds max height */
+    margin-top: 10px;
+}
