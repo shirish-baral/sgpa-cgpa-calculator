@@ -1,7 +1,7 @@
 const semesters = {
     1: [
         { name: 'Physics', credits: 3 },
-        { name: 'Differential Equations and Linear Algebra', credits: 4 },
+        { name: 'Differential Equations', credits: 4 },
         { name: 'Science Elective', credits: 2 },
     ],
     2: [
@@ -11,7 +11,7 @@ const semesters = {
     ],
     3: [
         { name: 'Data Structures', credits: 4 },
-        { name: 'Digital Systems Design', credits: 3 },
+        { name: 'Digital Systems', credits: 3 },
         { name: 'Automata Theory', credits: 4 },
     ],
 };
