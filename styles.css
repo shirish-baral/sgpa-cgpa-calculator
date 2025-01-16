@@ -6,15 +6,29 @@ body {
     background-color: #e0f7fa; /* Light teal background for the homepage */
     color: #333;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Ensure elements are stacked vertically */
+    justify-content: flex-start; /* Align the content from top */
+    align-items: center; /* Center the content horizontally */
     height: 100vh;
+}
+
+/* Improved Heading Style */
+.page-heading {
+    font-size: 2em;
+    color: #007BFF; /* Blue color for the heading */
+    margin-top: 20px; /* Add some space from the top */
+    margin-bottom: 30px; /* Add space before calculators */
+    font-weight: bold;
+    text-align: center; /* Center the heading */
 }
 
 /* Main container to align calculators side by side */
 .main-container {
     display: flex;
     gap: 20px;
+    justify-content: center; /* Ensure calculators are centered */
+    width: 100%;
+    padding: 20px;
 }
 
 /* Calculator containers */
@@ -27,14 +41,14 @@ body {
     text-align: center;
 }
 
-/* Headings */
-h1 {
-    font-size: 1.8em;
+/* Headings for calculators */
+h2 {
+    font-size: 1.5em;
     color: #007BFF; /* Blue color for headings */
     margin-bottom: 15px;
 }
 
-h2 {
+h3 {
     font-size: 1.2em;
     margin-bottom: 15px;
 }
@@ -72,39 +86,3 @@ button:hover {
     color: #007BFF;
     font-weight: bold;
 }
-
-/* Scrollable container for semester subjects */
-#semesters {
-    max-height: 300px; /* Set a fixed height for the container */
-    overflow-y: auto;  /* Enable vertical scrolling */
-    margin-top: 10px;
-    border: 1px solid #ccc; /* Optional: Add a border for better visibility */
-    padding: 10px; /* Optional: Add some padding */
-}
-
-/* Table styling inside the scrollable area */
-#semesters table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-#semesters th, #semesters td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-}
-
-#semesters th {
-    background-color: #f0f0f0; /* Light grey background for headers */
-}
-/* Heading styles */
-.page-heading {
-    text-align: center;
-    font-size: 2em;
-    color: #007BFF; /* Blue color for the heading */
-    margin-bottom: 30px;
-    font-weight: bold;
-    text-transform: uppercase; /* To make it more formal */
-}
-
