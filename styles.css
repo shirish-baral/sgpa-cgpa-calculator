@@ -9,7 +9,7 @@ body {
     flex-direction: column; /* Ensure elements are stacked vertically */
     justify-content: flex-start; /* Align the content from top */
     align-items: center; /* Center the content horizontally */
-    height: 100vh;
+    height: 100vh;   
 }
 
 /* Improved Heading Style */
