@@ -20,7 +20,8 @@ const semesters = {
         { name: 'Chemistry Lab', credits: 1 },
         { name: 'Engineering Lab', credits: 1 },
         { name: 'Workshop', credits: 1 },
-        { name: 'Communication Lab', credits: 1 }
+        { name: 'Communication Lab', credits: 1 },
+        { name: 'Yoga', credits: 1 }
     ],
     3: [
         { name: 'Scientific and Technical Writing', credits: 2 },
