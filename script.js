@@ -156,3 +156,6 @@ function calculateCGPA() {
     const cgpa = ((previousCgpa * previousSemesters) + newSemesterSgpa) / totalSemesters;
     document.getElementById('cgpaResult').textContent = `CGPA: ${cgpa.toFixed(2)}`;
 }
+
+
+
