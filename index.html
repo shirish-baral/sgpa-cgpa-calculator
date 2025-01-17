@@ -56,25 +56,34 @@
         </form>
       </div>
 
-      <!-- CGPA Calculator Section -->
-      <div class="container hidden" id="cgpa-calculator">
+      <!-- CGPA Calculator Section (Initially Hidden) -->
+      <div class="container hidden" id="cgpa-container">
         <h2>CGPA Calculator</h2>
         <form id="cgpaForm">
-          <div>
-            <label for="previousCgpa">Enter your CGPA till last calculated semester</label>
-            <input type="number" id="previousCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.59"/>
+          <!-- New Semester SGPA -->
+          <div class="form-group">
+            <label for="newSemesterSgpa">New Semester SGPA:</label>
+            <input type="number" id="newSemesterSgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72" required />
           </div>
-          <div>
-            <label for="previousSemesters">Which semester's CGPA is this? (e.g., 2 for 2nd sem CGPA)</label>
-            <input type="number" id="previousSemesters" min="1" max="8" placeholder="e.g., 2"/>
+      
+          <!-- Semester Number for Latest SGPA -->
+          <div class="form-group">
+            <label for="semesterForSgpa">Semester Number for Latest SGPA:</label>
+            <input type="number" id="semesterForSgpa" min="1" max="8" placeholder="e.g., 6" required />
           </div>
-          <div>
-            <label for="newSemesterSgpa">SGPA for last semester:</label>
-            <input type="number" id="newSemesterSgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72 for 3rd semester"/>
+      
+          <!-- CGPA Up to Last Semester -->
+          <div class="form-group">
+            <label for="previousCgpa">CGPA Up to Last Semester:</label>
+            <input type="number" id="previousCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.5 up to 5th semester" required />
           </div>
+      
+          <!-- Calculate Button -->
           <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
-          <div id="cgpaResult" class="result"></div>
         </form>
+      
+        <!-- CGPA Result Display -->
+        <div id="cgpaResult" class="cgpa-result"></div>
       </div>
     </div>
 
