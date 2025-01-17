@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="heading.css" />
   </head>
   <body>
-    <!-- Heading section remains the same -->
+    <!-- Header Section -->
     <div class="header">
       <div class="logo">
         <a href="#"><img src="./images/logo.webp" alt="Logo" class="logo" /></a>
@@ -24,14 +24,14 @@
     </div>
     <div class="below-text">For BTech(CSE) at KIIT University</div>
 
-    <!-- Toggle Switch -->
+    <!-- Calculator Toggle -->
     <div class="toggle-container">
       <button class="toggle-btn active" onclick="toggleCalculator('sgpa')">SGPA Calculator</button>
       <button class="toggle-btn" onclick="toggleCalculator('cgpa')">CGPA Calculator</button>
     </div>
 
     <div class="main-container">
-      <!-- SGPA Calculator -->
+      <!-- SGPA Calculator Section -->
       <div class="container" id="sgpa-calculator">
         <h2>SGPA Calculator</h2>
         <form id="sgpaForm">
@@ -47,6 +47,7 @@
             <option value="7">Semester 7</option>
             <option value="8">Semester 8</option>
           </select>
+          <!-- Dynamic grade selection table will be inserted here -->
           <div id="semesters"></div>
           <button type="button" id="calculateButton" onclick="calculateSGPA()">
             Calculate SGPA
@@ -55,7 +56,7 @@
         </form>
       </div>
 
-      <!-- CGPA Calculator -->
+      <!-- CGPA Calculator Section -->
       <div class="container hidden" id="cgpa-calculator">
         <h2>CGPA Calculator</h2>
         <form id="cgpaForm">
@@ -77,58 +78,13 @@
       </div>
     </div>
 
-    <!-- Rest of the code (Grade Table and Footer) remains the same -->
-    <!-- ... -->
-
-    <!-- Grade Table -->
-    <h2>Grade Scale</h2>
-    <table border="1" class="grade-table">
-      <thead>
-        <tr>
-          <th>Grade Range</th>
-          <th>Letter Grade</th>
-          <th>Grade Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>90 - 100</td>
-          <td>O</td>
-          <td>10</td>
-        </tr>
-        <tr>
-          <td>80 - 89</td>
-          <td>E</td>
-          <td>9</td>
-        </tr>
-        <tr>
-          <td>70 - 79</td>
-          <td>A</td>
-          <td>8</td>
-        </tr>
-        <tr>
-          <td>60 - 69</td>
-          <td>B</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td>50 - 59</td>
-          <td>C</td>
-          <td>6</td>
-        </tr>
-        <tr>
-          <td>40 - 49</td>
-          <td>D</td>
-          <td>5</td>
-        </tr>
-      </tbody>
-    </table>
-
+    <!-- Footer Section -->
     <footer class="footer">
         <p>&copy; ShirishBaral 2025</p>
         <p>This project is <a href="https://github.com/shirish-baral/sgpa-cgpa-calculator.git" target="_blank">open source</a>. Contributions are welcome!</p>
     </footer>
 
+    <!-- Scripts -->
     <script src="script.js"></script>
   </body>
 </html>
