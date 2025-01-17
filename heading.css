@@ -77,3 +77,30 @@
 .footer p {
     margin: 5px 0;
 }
+@media (max-width: 600px) {
+    .header {
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center-align items */
+      padding: 10px;
+    }
+  
+    .github-icon {
+      margin-right: 0; /* Remove margin to fit better on small screens */
+      margin-top: 10px; /* Add spacing for vertical layout */
+    }
+  
+    .title {
+      font-size: 1.2rem; /* Reduce font size for smaller screens */
+    }
+  
+    .logo img {
+      width: 40px; /* Adjust logo size for smaller screens */
+      height: 40px;
+    }
+  
+    .below-text {
+      font-size: medium; /* Adjust text size for readability */
+      text-align: center; /* Center-align text */
+    }
+  }
+  
