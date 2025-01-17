@@ -154,5 +154,35 @@ function calculateCGPA() {
 
     const totalSemesters = previousSemesters + 1;
     const cgpa = ((previousCgpa * previousSemesters) + newSemesterSgpa) / totalSemesters;
-    document.getElementById('cgpaResult').textContent = `New CGPA: ${cgpa.toFixed(2)}`;
+    
+    // Display CGPA with the semester information
+    document.getElementById('cgpaResult').textContent = 
+        `New CGPA after semester ${totalSemesters} is: ${cgpa.toFixed(2)}`;
 }
+
+function toggleCalculator(type) {
+    const sgpaCalc = document.getElementById('sgpa-calculator');
+    const cgpaCalc = document.getElementById('cgpa-calculator');
+    const buttons = document.querySelectorAll('.toggle-btn');
+    
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(type)) {
+            btn.classList.add('active');
+        }
+    });
+
+    if (type === 'sgpa') {
+        sgpaCalc.classList.remove('hidden');
+        cgpaCalc.classList.add('hidden');
+    } else {
+        // For CGPA, directly hide SGPA and show CGPA
+        sgpaCalc.classList.add('hidden');
+        cgpaCalc.classList.remove('hidden');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    toggleCalculator('sgpa');
+        }
+    );
