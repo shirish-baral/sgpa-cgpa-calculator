@@ -178,3 +178,40 @@ table td {
     padding: 9px;
     border-bottom: 1px solid #ddd; /* Add a bottom border to separate rows */
 }
+@media (max-width: 600px) {
+    .main-container {
+      width: 90%; /* Use most of the screen width */
+      padding: 10px;
+    }
+  
+    .container {
+      width: 100%; /* Expand calculator to full width */
+      padding: 15px; /* Adjust padding */
+      margin-bottom: 20px; /* Add spacing between calculators */
+    }
+  
+    h2 {
+      font-size: 1.3em; /* Slightly smaller heading */
+    }
+  
+    button {
+      width: 100%; /* Buttons take up full width */
+      font-size: 0.9em; /* Adjust font size */
+    }
+  
+    input {
+      width: calc(100% - 10px); /* Ensure inputs fit within container */
+    }
+  
+    .toggle-btn {
+      padding: 10px;
+      font-size: 0.9em; /* Adjust font size */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .footer {
+      font-size: 0.8rem; /* Reduce font size for very small screens */
+    }
+  }
+  
