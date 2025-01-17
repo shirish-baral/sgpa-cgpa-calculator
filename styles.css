@@ -33,7 +33,7 @@ body {
 }
 /* Calculator containers */
 .container {
-    width: 350px; /* Same reduced width for both calculators */
+    width: 500px; /* Same reduced width for both calculators */
     padding: 20px;
     background-color: #ffffff; /* White background for calculators */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -178,40 +178,20 @@ table td {
     padding: 9px;
     border-bottom: 1px solid #ddd; /* Add a bottom border to separate rows */
 }
-@media (max-width: 600px) {
-    .main-container {
-      width: 90%; /* Use most of the screen width */
-      padding: 10px;
-    }
-  
-    .container {
-      width: 100%; /* Expand calculator to full width */
-      padding: 15px; /* Adjust padding */
-      margin-bottom: 20px; /* Add spacing between calculators */
-    }
-  
-    h2 {
-      font-size: 1.3em; /* Slightly smaller heading */
-    }
-  
-    button {
-      width: 100%; /* Buttons take up full width */
-      font-size: 0.9em; /* Adjust font size */
-    }
-  
-    input {
-      width: calc(100% - 10px); /* Ensure inputs fit within container */
-    }
-  
-    .toggle-btn {
-      padding: 10px;
-      font-size: 0.9em; /* Adjust font size */
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .footer {
-      font-size: 0.8rem; /* Reduce font size for very small screens */
-    }
-  }
-  
+.cgpa-result {
+    background-color: #e0f7fa; /* Light cyan background */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    color: #00796b; /* Dark teal text */
+    font-weight: 600;
+}
+
+.cgpa-result span {
+    color: #d32f2f; /* Red color for CGPA value */
+    font-size: 22px;
+    font-weight: bold;
+}
