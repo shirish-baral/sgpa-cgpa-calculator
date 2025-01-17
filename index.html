@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="heading.css" />
   </head>
   <body>
-    <!-- Improved Heading -->
+    <!-- Heading section remains the same -->
     <div class="header">
       <div class="logo">
         <a href="#"><img src="./images/logo.webp" alt="Logo" class="logo" /></a>
       </div>
-
       <div class="title">
         <div>SGPA and CGPA Calculator</div>
       </div>
@@ -24,6 +23,13 @@
       </div>
     </div>
     <div class="below-text">For BTech(CSE) at KIIT University</div>
+
+    <!-- Toggle Switch -->
+    <div class="toggle-container">
+      <button class="toggle-btn active" onclick="toggleCalculator('sgpa')">SGPA Calculator</button>
+      <button class="toggle-btn" onclick="toggleCalculator('cgpa')">CGPA Calculator</button>
+    </div>
+
     <div class="main-container">
       <!-- SGPA Calculator -->
       <div class="container" id="sgpa-calculator">
@@ -50,50 +56,29 @@
       </div>
 
       <!-- CGPA Calculator -->
-      <div class="container" id="cgpa-calculator">
+      <div class="container hidden" id="cgpa-calculator">
         <h2>CGPA Calculator</h2>
         <form id="cgpaForm">
           <div>
-            <label for="previousCgpa"
-              >Current CGPA (up to previous semester):</label
-            >
-            <input
-              type="number"
-              id="previousCgpa"
-              step="0.01"
-              min="0"
-              max="10"
-              placeholder="e.g., 9.29 up to 4th semester"
-            />
+            <label for="previousCgpa">Enter your CGPA till last calculated semester</label>
+            <input type="number" id="previousCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.59"/>
           </div>
           <div>
-            <label for="previousSemesters">Total semester completed:</label>
-            <input
-              type="number"
-              id="previousSemesters"
-              min="1"
-              max="8"
-              placeholder="e.g., 4"
-            />
+            <label for="previousSemesters">Which semester's CGPA is this? (e.g., 2 for 2nd sem CGPA)</label>
+            <input type="number" id="previousSemesters" min="1" max="8" placeholder="e.g., 2"/>
           </div>
           <div>
-            <label for="newSemesterSgpa">SGPA for current semester:</label>
-            <input
-              type="number"
-              id="newSemesterSgpa"
-              step="0.01"
-              min="0"
-              max="10"
-              placeholder="e.g., 9.72 for 5th semester"
-            />
+            <label for="newSemesterSgpa">SGPA for last semester:</label>
+            <input type="number" id="newSemesterSgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72 for 3rd semester"/>
           </div>
-          <button type="button" onclick="calculateCGPA()">
-            Calculate CGPA
-          </button>
+          <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
           <div id="cgpaResult" class="result"></div>
         </form>
       </div>
     </div>
+
+    <!-- Rest of the code (Grade Table and Footer) remains the same -->
+    <!-- ... -->
 
     <!-- Grade Table -->
     <h2>Grade Scale</h2>
