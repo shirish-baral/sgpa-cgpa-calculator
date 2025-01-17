@@ -128,6 +128,7 @@ function showSemesterSubjects() {
     semesterContainer.appendChild(table);
 }
 
+
 function calculateSGPA() {
     let totalCredits = 0;
     let weightedSum = 0;
