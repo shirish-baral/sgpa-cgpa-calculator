@@ -157,38 +157,38 @@ function calculateSGPA() {
     const sgpa = totalCredits > 0 ? (weightedSum / totalCredits).toFixed(2) : 0;
     document.getElementById('result').textContent = `SGPA: ${sgpa}`;
 }
-
 function calculateCGPA() {
-    const previousCgpa = parseFloat(document.getElementById('previousCgpa').value);
-    const previousSemesters = parseInt(document.getElementById('previousSemesters').value);
+    // Get input values
     const newSemesterSgpa = parseFloat(document.getElementById('newSemesterSgpa').value);
+    const semesterForSgpa = parseInt(document.getElementById('semesterForSgpa').value);
+    const previousCgpa = parseFloat(document.getElementById('previousCgpa').value);
 
-    if (
-        isNaN(previousCgpa) || previousCgpa < 0 || previousCgpa > 10 ||
-        isNaN(previousSemesters) || previousSemesters < 1 ||
-        isNaN(newSemesterSgpa) || newSemesterSgpa < 0 || newSemesterSgpa > 10
-    ) {
-        alert('Please enter valid CGPA, semester count, and SGPA values.');
+    // Validate inputs
+    if (isNaN(newSemesterSgpa) || isNaN(semesterForSgpa) || isNaN(previousCgpa)) {
+        alert('Please fill in all fields correctly.');
         return;
     }
 
-    const totalSemesters = previousSemesters + 1;
-    const cgpa = ((previousCgpa * previousSemesters) + newSemesterSgpa) / totalSemesters;
+    // Calculate total number of semesters (including the latest one)
+    const totalSemesters = semesterForSgpa;
 
-    const semesterNames = [
-        "1st Semester", "2nd Semester", "3rd Semester", "4th Semester",
-        "5th Semester", "6th Semester", "7th Semester", "8th Semester"
-    ];
+    // Calculate CGPA using the formula:
+    const newCgpa = (previousCgpa * (totalSemesters - 1) + newSemesterSgpa) / totalSemesters;
 
-    const newSemesterName = semesterNames[previousSemesters] || `${totalSemesters}th Semester`;
-
-    document.getElementById('cgpaResult').textContent = `New CGPA: ${cgpa.toFixed(2)} for ${newSemesterName}`;
+    // Display the result with updated styling
+    const cgpaOutput = `
+        <div class="cgpa-result">
+            <div>Your updated CGPA after Semester ${semesterForSgpa} is: <span>${newCgpa.toFixed(2)}</span></div>
+        </div>
+    `;
+    document.getElementById('cgpaResult').innerHTML = cgpaOutput;
 }
 
 
+// Modify the toggleCalculator function to ensure SGPA is visible by default and CGPA is hidden
 function toggleCalculator(type) {
     const sgpaCalc = document.getElementById('sgpa-calculator');
-    const cgpaCalc = document.getElementById('cgpa-calculator');
+    const cgpaCalc = document.getElementById('cgpa-container');
     const buttons = document.querySelectorAll('.toggle-btn');
 
     if (type === 'sgpa') {
@@ -203,3 +203,8 @@ function toggleCalculator(type) {
         buttons[1].classList.add('active');
     }
 }
+
+// Ensure SGPA is displayed by default when the page loads
+window.onload = function() {
+    toggleCalculator('sgpa'); // This will make sure SGPA is selected initially
+};
