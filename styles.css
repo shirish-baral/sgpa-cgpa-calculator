@@ -23,14 +23,14 @@ body {
 }
 
 /* Main container to align calculators side by side */
+/* Adjust main container for single calculator */
 .main-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center; /* Ensure calculators are centered */
+    display: block;
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
 }
-
 /* Calculator containers */
 .container {
     width: 350px; /* Same reduced width for both calculators */
@@ -116,5 +116,36 @@ button:hover {
 table {
     width: 100%;
     table-layout: fixed;
+}
+
+.toggle-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Updated container styles */
+.container {
+    width: 500px; /* Increased width since only one calculator will be shown */
+    transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none;
 }
 
