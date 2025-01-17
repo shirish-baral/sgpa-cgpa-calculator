@@ -2,6 +2,8 @@
 
 This is a simple **SGPA & CGPA Calculator** web app that allows students to calculate their SGPA (Semester Grade Point Average) and CGPA (Cumulative Grade Point Average) based on their semester-wise grades. The calculator includes a user-friendly interface that allows the user to select subjects, input grades, and compute the SGPA and CGPA.
 
+If you wish to contribute to this project, feel free to refer to the [OpenSource Contribution Guide](opensource-guide.md) for details on how to get started, submit pull requests, and suggest new features.
+
 ## Live Demo
 
 You can access the live demo of the **SGPA & CGPA Calculator** at:
@@ -27,18 +29,8 @@ You can access the live demo of the **SGPA & CGPA Calculator** at:
    - After selecting the subjects and entering the grades, click on "Calculate SGPA" to see the SGPA result for the semester.
 
 3. **Calculate CGPA**: 
-   - Enter your previous CGPA, the number of previous semesters, and the SGPA for the current semester.
+   - Enter your new SGPA, semester number for SGPA, and the CGPA up to the previous semester.
    - Click on "Calculate CGPA" to get your overall CGPA.
-
-4. **Choose Between Subjects**:
-   - In Semester 3 and 4, you can choose between **Scientific and Technical Writing** (Credits: 2) and **HASS Elective II** (Credits: 3).
-   - The subject you don't choose will be available in the next semester.
-
-## Live Demo
-
-You can access the live demo of the **SGPA & CGPA Calculator** at:
-
-[https://shirish-baral.github.io/sgpa-cgpa-calculator/](https://shirish-baral.github.io/sgpa-cgpa-calculator/)
 
 ## Technologies Used
 - **HTML**: Structure of the webpage.
