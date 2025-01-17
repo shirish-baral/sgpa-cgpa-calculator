@@ -81,6 +81,15 @@ const semesters = {
     ]
 };
 
+const gradePoints = {
+    'O': 10,
+    'E': 9,
+    'A': 8,
+    'B': 7,
+    'C': 6,
+    'D': 5
+};
+
 function showSemesterSubjects() {
     const selectedSemester = document.getElementById('semesterSelect').value;
     const semesterContainer = document.getElementById('semesters');
@@ -93,7 +102,7 @@ function showSemesterSubjects() {
 
     const courses = semesters[selectedSemester];
     const table = document.createElement('table');
-    const header = `<tr><th>Course</th><th>Credits</th><th>Grade (0-10)</th></tr>`;
+    const header = `<tr><th>Course</th><th>Credits</th><th>Grade</th></tr>`;
     table.innerHTML = header;
 
     courses.forEach(course => {
@@ -101,7 +110,17 @@ function showSemesterSubjects() {
         row.innerHTML = `
             <td>${course.name}</td>
             <td>${course.credits}</td>
-            <td><input type="number" min="0" max="10" step="0.1" data-credits="${course.credits}" class="grade"></td>
+            <td>
+                <select class="grade" data-credits="${course.credits}">
+                    <option value="" selected disabled>Select Grade</option>
+                    <option value="O">O (10)</option>
+                    <option value="E">E (9)</option>
+                    <option value="A">A (8)</option>
+                    <option value="B">B (7)</option>
+                    <option value="C">C (6)</option>
+                    <option value="D">D (5)</option>
+                </select>
+            </td>
         `;
         table.appendChild(row);
     });
@@ -114,27 +133,27 @@ function calculateSGPA() {
     let weightedSum = 0;
     let allGradesValid = true;
 
-    document.querySelectorAll('.grade').forEach(input => {
-        const grade = parseFloat(input.value);
-        const credits = parseInt(input.getAttribute('data-credits'));
+    document.querySelectorAll('.grade').forEach(select => {
+        const gradeValue = select.value;
+        const credits = parseInt(select.getAttribute('data-credits'));
 
-        if (isNaN(grade) || grade < 0 || grade > 10) {
+        if (!gradeValue) {
             allGradesValid = false;
-            input.style.border = '2px solid red'; // Highlight invalid fields
+            select.style.border = '2px solid red'; // Highlight invalid fields
         } else {
-            weightedSum += grade * credits;
+            const gradePoint = gradePoints[gradeValue];
+            weightedSum += gradePoint * credits;
             totalCredits += credits;
-            input.style.border = ''; // Reset border for valid fields
+            select.style.border = ''; // Reset border for valid fields
         }
     });
 
     if (!allGradesValid) {
-        alert('Please ensure all grade inputs are valid (0-10).');
+        alert('Please select grades for all subjects.');
         return;
     }
 
     const sgpa = totalCredits > 0 ? (weightedSum / totalCredits).toFixed(2) : 0;
-    alert(`Your SGPA is: ${sgpa}`);
     document.getElementById('result').textContent = `SGPA: ${sgpa}`;
 }
 
@@ -154,35 +173,23 @@ function calculateCGPA() {
 
     const totalSemesters = previousSemesters + 1;
     const cgpa = ((previousCgpa * previousSemesters) + newSemesterSgpa) / totalSemesters;
-    
-    // Display CGPA with the semester information
-    document.getElementById('cgpaResult').textContent = 
-        `New CGPA after semester ${totalSemesters} is: ${cgpa.toFixed(2)}`;
+    document.getElementById('cgpaResult').textContent = `New CGPA: ${cgpa.toFixed(2)}`;
 }
 
 function toggleCalculator(type) {
     const sgpaCalc = document.getElementById('sgpa-calculator');
     const cgpaCalc = document.getElementById('cgpa-calculator');
     const buttons = document.querySelectorAll('.toggle-btn');
-    
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.textContent.toLowerCase().includes(type)) {
-            btn.classList.add('active');
-        }
-    });
 
     if (type === 'sgpa') {
         sgpaCalc.classList.remove('hidden');
         cgpaCalc.classList.add('hidden');
+        buttons[0].classList.add('active');
+        buttons[1].classList.remove('active');
     } else {
-        // For CGPA, directly hide SGPA and show CGPA
         sgpaCalc.classList.add('hidden');
         cgpaCalc.classList.remove('hidden');
+        buttons[0].classList.remove('active');
+        buttons[1].classList.add('active');
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    toggleCalculator('sgpa');
-        }
-    );
