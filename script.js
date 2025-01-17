@@ -174,8 +174,17 @@ function calculateCGPA() {
 
     const totalSemesters = previousSemesters + 1;
     const cgpa = ((previousCgpa * previousSemesters) + newSemesterSgpa) / totalSemesters;
-    document.getElementById('cgpaResult').textContent = `New CGPA: ${cgpa.toFixed(2)}`;
+
+    const semesterNames = [
+        "1st Semester", "2nd Semester", "3rd Semester", "4th Semester",
+        "5th Semester", "6th Semester", "7th Semester", "8th Semester"
+    ];
+
+    const newSemesterName = semesterNames[previousSemesters] || `${totalSemesters}th Semester`;
+
+    document.getElementById('cgpaResult').textContent = `New CGPA: ${cgpa.toFixed(2)} for ${newSemesterName}`;
 }
+
 
 function toggleCalculator(type) {
     const sgpaCalc = document.getElementById('sgpa-calculator');
