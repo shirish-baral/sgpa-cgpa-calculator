@@ -3,48 +3,92 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e0f7fa; /* Light teal background for the homepage */
+    background-color: #e0f7fa;
     color: #333;
     display: flex;
-    flex-direction: column; /* Ensure elements are stacked vertically */
-    justify-content: flex-start; /* Align the content from top */
-    align-items: center; /* Center the content horizontally */
-    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Improved Heading Style */
-.page-heading {
-    font-size: 2em;
-    color: #007BFF; /* Blue color for the heading */
-    margin-top: 20px; /* Add some space from the top */
-    margin-bottom: 30px; /* Add space before calculators */
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header .logo img {
+    height: 40px;
+}
+
+.header .title {
+    font-size: 1.2em;
     font-weight: bold;
-    text-align: center; /* Center the heading */
 }
 
-/* Main container to align calculators side by side */
-/* Adjust main container for single calculator */
+.header .github-icon img {
+    height: 30px;
+}
+
+.below-text {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Toggle Container */
+.toggle-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Main Container */
 .main-container {
-    display: block;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
 }
-/* Calculator containers */
+
+/* Calculator Containers */
 .container {
-    width: 500px; /* Same reduced width for both calculators */
+    width: 100%;
     padding: 20px;
-    background-color: #ffffff; /* White background for calculators */
+    background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Headings for calculators */
 h2 {
     font-size: 1.5em;
-    color: #007BFF; /* Blue color for headings */
+    color: #007BFF;
     margin-bottom: 15px;
 }
 
@@ -73,6 +117,7 @@ button {
     font-size: 1em;
     cursor: pointer;
     margin-top: 10px;
+    width: 100%;
 }
 
 button:hover {
@@ -90,7 +135,7 @@ button:hover {
 /* Grade Table Styles */
 .grade-table {
     margin-top: 20px;
-    width: 70%;
+    width: 100%;
     text-align: center;
     border-collapse: collapse;
 }
@@ -107,8 +152,8 @@ button:hover {
 
 /* Subject list scrolling */
 #semesters {
-    max-height: 300px; /* Set a max height for the list */
-    overflow-y: auto; /* Allow scrolling when content overflows */
+    max-height: 300px;
+    overflow-y: auto;
     margin-top: 15px;
 }
 
@@ -116,37 +161,6 @@ button:hover {
 table {
     width: 100%;
     table-layout: fixed;
-}
-
-.toggle-container {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.toggle-btn {
-    padding: 10px 20px;
-    margin: 0 5px;
-    background-color: #e0e0e0;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.toggle-btn.active {
-    background-color: #007BFF;
-    color: white;
-}
-
-/* Updated container styles */
-.container {
-    width: 500px; /* Increased width since only one calculator will be shown */
-    transition: all 0.3s ease;
-}
-
-.hidden {
-    display: none;
 }
 
 select.grade {
@@ -163,9 +177,10 @@ select.grade:focus {
     border-color: #007BFF;
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
+
 /* Reduced font size for course names */
 table td {
-    font-size: 0.8em; /* Reduce the font size */
+    font-size: 0.8em;
 }
 
 /* Add more spacing between courses */
@@ -176,22 +191,154 @@ table tr {
 /* Add padding to courses to visually separate them */
 table td {
     padding: 9px;
-    border-bottom: 1px solid #ddd; /* Add a bottom border to separate rows */
+    border-bottom: 1px solid #ddd;
 }
+
 .cgpa-result {
-    background-color: #e0f7fa; /* Light cyan background */
+    background-color: #e0f7fa;
     padding: 20px;
     margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-size: 18px;
-    color: #00796b; /* Dark teal text */
+    color: #00796b;
     font-weight: 600;
 }
 
 .cgpa-result span {
-    color: #d32f2f; /* Red color for CGPA value */
+    color: #d32f2f;
     font-size: 22px;
     font-weight: bold;
+}
+
+/* Footer Section */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007BFF;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+.footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header .title {
+        font-size: 1em;
+    }
+
+    .header .github-icon img {
+        height: 25px;
+    }
+
+    .below-text {
+        font-size: 0.8em;
+    }
+
+    .toggle-btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+
+    input {
+        font-size: 0.9em;
+    }
+
+    button {
+        font-size: 0.9em;
+    }
+
+    .result {
+        font-size: 1.1em;
+    }
+
+    .grade-table th, .grade-table td {
+        padding: 8px;
+    }
+
+    .cgpa-result {
+        font-size: 16px;
+    }
+
+    .cgpa-result span {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header .title {
+        font-size: 0.9em;
+    }
+
+    .header .github-icon img {
+        height: 20px;
+    }
+
+    .below-text {
+        font-size: 0.7em;
+    }
+
+    .toggle-btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+
+    input {
+        font-size: 0.8em;
+    }
+
+    button {
+        font-size: 0.8em;
+    }
+
+    .result {
+        font-size: 1em;
+    }
+
+    .grade-table th, .grade-table td {
+        padding: 6px;
+    }
+
+    .cgpa-result {
+        font-size: 14px;
+    }
+
+    .cgpa-result span {
+        font-size: 18px;
+    }
 }
