@@ -90,6 +90,7 @@ const gradePoints = {
     'D': 5
 };
 
+// Function to display subjects for the selected semester
 function showSemesterSubjects() {
     const selectedSemester = document.getElementById('semesterSelect').value;
     const semesterContainer = document.getElementById('semesters');
@@ -102,6 +103,7 @@ function showSemesterSubjects() {
 
     const courses = semesters[selectedSemester];
     const table = document.createElement('table');
+    table.classList.add('grade-table'); // Add class for styling
     const header = `<tr><th>Course</th><th>Credits</th><th>Grade</th></tr>`;
     table.innerHTML = header;
 
@@ -128,7 +130,7 @@ function showSemesterSubjects() {
     semesterContainer.appendChild(table);
 }
 
-
+// Function to calculate SGPA
 function calculateSGPA() {
     let totalCredits = 0;
     let weightedSum = 0;
@@ -157,6 +159,8 @@ function calculateSGPA() {
     const sgpa = totalCredits > 0 ? (weightedSum / totalCredits).toFixed(2) : 0;
     document.getElementById('result').textContent = `SGPA: ${sgpa}`;
 }
+
+// Function to calculate CGPA
 function calculateCGPA() {
     // Get input values
     const newSemesterSgpa = parseFloat(document.getElementById('newSemesterSgpa').value);
@@ -184,8 +188,7 @@ function calculateCGPA() {
     document.getElementById('cgpaResult').innerHTML = cgpaOutput;
 }
 
-
-// Modify the toggleCalculator function to ensure SGPA is visible by default and CGPA is hidden
+// Function to toggle between SGPA and CGPA calculators
 function toggleCalculator(type) {
     const sgpaCalc = document.getElementById('sgpa-calculator');
     const cgpaCalc = document.getElementById('cgpa-container');
@@ -205,6 +208,6 @@ function toggleCalculator(type) {
 }
 
 // Ensure SGPA is displayed by default when the page loads
-window.onload = function() {
+window.onload = function () {
     toggleCalculator('sgpa'); // This will make sure SGPA is selected initially
 };
