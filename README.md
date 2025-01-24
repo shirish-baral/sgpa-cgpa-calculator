@@ -13,12 +13,11 @@ You can access the live demo of the **SGPA & CGPA Calculator** at:
 ## Features
 - **SGPA Calculator**: 
   - Allows users to select their semester (from Semester 1 to Semester 8).
-  - Users can choose between subjects like "Scientific and Technical Writing" and "HASS Elective II" in Semester 3 and 4.
-  - Input grades (0-10) for each subject.
+  - Input grades (O,E,A,B,C,D) for each subject.
   
 - **CGPA Calculator**: 
-  - Allows users to input their current CGPA and the number of previous semesters.
-  - Computes the CGPA by including the SGPA of the current semester.
+  - Allows users to input their latest SGPA and the semester number for that SGPA.
+  - Computes the CGPA by including the CGPA upto previous semester.
 
 ## How to Use
 1. **Select a Semester**: 
