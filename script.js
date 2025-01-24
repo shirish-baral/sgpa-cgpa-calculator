@@ -176,8 +176,26 @@ function calculateCGPA() {
     // Calculate total number of semesters (including the latest one)
     const totalSemesters = semesterForSgpa;
 
+    // Calculate old semesters credit 
+    let oldSemestersCredits = 0;
+    for (let i = 1; i < totalSemesters;i++){
+        const subjects = semesters[`${i}`];
+        for (const subject of subjects){
+            oldSemestersCredits += subject.credits;
+        }
+    }
+
+    // Calculate new semesters credit 
+    let newSemesterCredits = 0;
+    for(const subject of semesters[`${semesterForSgpa}`]){
+        newSemesterCredits += subject.credits;
+    }
+
+    // Calculate total semester credits
+    const totalSemesterscredits = oldSemestersCredits + newSemesterCredits;
+
     // Calculate CGPA using the formula:
-    const newCgpa = (previousCgpa * (totalSemesters - 1) + newSemesterSgpa) / totalSemesters;
+    const newCgpa = ((previousCgpa * oldSemestersCredits) + (newSemesterSgpa * newSemesterCredits) ) / totalSemesterscredits;
 
     // Display the result with updated styling
     const cgpaOutput = `
@@ -188,22 +206,92 @@ function calculateCGPA() {
     document.getElementById('cgpaResult').innerHTML = cgpaOutput;
 }
 
+function calculateReqSgpa(){
+    // Get input values
+    const currentCgpa = parseFloat(document.getElementById('currentCgpa').value);
+    const requiredCgpa = parseFloat(document.getElementById('requiredCgpa').value);
+    const semesterForSgpa = parseFloat(document.getElementById('semesterForSgpareq').value);  
+
+    // Validate inputs
+    if (isNaN(currentCgpa) || isNaN(requiredCgpa) || isNaN(semesterForSgpa)) {
+        alert('Please fill in all fields correctly.');
+        return;
+    }
+
+    // Calculate Total Cumulative Credits of current and last Semester
+    let totalCumulativeCredits = 0;
+    let totalCumulativeCreditsLastSem = 0;
+    for(let i = 1; i <= semesterForSgpa; i++){
+        const subjects = semesters[`${i}`]
+        for(const subject of subjects){
+            totalCumulativeCredits += subject.credits;
+            if( i != semesterForSgpa){
+                totalCumulativeCreditsLastSem += subject.credits;
+            }
+        }
+    }
+
+
+    // Calculate Required Cummulative Credits
+    const requiredCumulativeCredits = Math.round(totalCumulativeCredits  * requiredCgpa);
+
+    // Calculate Required Credits
+    const requiredCredits = requiredCumulativeCredits - Math.round(currentCgpa * totalCumulativeCreditsLastSem );
+
+    // Calculate Current Credits
+    const currentCredits = (totalCumulativeCredits - totalCumulativeCreditsLastSem)/10;
+
+    // Calculate Required SGPA
+    const requiredSgpa = requiredCredits/currentCredits / 10;
+
+    let sgpaReqOutput = '';
+    if(requiredSgpa <= 10){
+    sgpaReqOutput = `
+        <div class="sgpareq-result">
+            <div>You need ${requiredSgpa.toFixed(2)} in ${semesterForSgpa}th Semester to get ${requiredCgpa} CGPA</span></div>
+        </div>
+    `;
+    }else{
+        sgpaReqOutput = `
+        <div class="sgpareq-result">
+            <div>Required CGPA not achievable this semester.</span></div>
+        </div>
+    `;        
+    }
+
+    document.getElementById('sgpareq').innerHTML = sgpaReqOutput;    
+
+
+}
+
 // Function to toggle between SGPA and CGPA calculators
 function toggleCalculator(type) {
     const sgpaCalc = document.getElementById('sgpa-calculator');
     const cgpaCalc = document.getElementById('cgpa-container');
+    const sgpaReqCalc = document.getElementById('sgpareq-container');
     const buttons = document.querySelectorAll('.toggle-btn');
 
     if (type === 'sgpa') {
         sgpaCalc.classList.remove('hidden');
         cgpaCalc.classList.add('hidden');
+        sgpaReqCalc.classList.add('hidden');
         buttons[0].classList.add('active');
         buttons[1].classList.remove('active');
-    } else {
+        buttons[2].classList.remove('active');
+    } else if (type === 'cgpa') {
         sgpaCalc.classList.add('hidden');
         cgpaCalc.classList.remove('hidden');
+        sgpaReqCalc.classList.add('hidden');
         buttons[0].classList.remove('active');
         buttons[1].classList.add('active');
+        buttons[2].classList.remove('active');
+    }else{
+        sgpaCalc.classList.add('hidden');
+        cgpaCalc.classList.add('hidden');
+        sgpaReqCalc.classList.remove('hidden');
+        buttons[0].classList.remove('active');
+        buttons[1].classList.remove('active');
+        buttons[2].classList.add('active');       
     }
 }
 
