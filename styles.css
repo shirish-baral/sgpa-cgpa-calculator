@@ -235,7 +235,7 @@ table td {
     border-bottom: 1px solid #ddd;
 }
 
-.cgpa-result {
+.cgpa-result,.sgpareq-result {
     background-color: #e0f7fa;
     padding: 20px;
     margin-top: 20px;
@@ -247,7 +247,7 @@ table td {
     font-weight: 600;
 }
 
-.cgpa-result span {
+.cgpa-result,.sgpareq-result span {
     color: #d32f2f;
     font-size: 22px;
     font-weight: bold;
@@ -325,11 +325,11 @@ table td {
         padding: 8px;
     }
 
-    .cgpa-result {
+    .cgpa-result,.sgpareq-result {
         font-size: 16px;
     }
 
-    .cgpa-result span {
+    .cgpa-result,.sgpareq-result span {
         font-size: 20px;
     }
     .hidden {
@@ -384,11 +384,11 @@ table td {
         padding: 6px;
     }
 
-    .cgpa-result {
+    .cgpa-result,.sgpareq-result {
         font-size: 14px;
     }
 
-    .cgpa-result span {
+    .cgpa-result,.sgpareq-result span {
         font-size: 18px;
     }
 
