@@ -29,7 +29,7 @@
       <button class="toggle-btn active" onclick="toggleCalculator('sgpa')">SGPA Calculator</button>
       <button class="toggle-btn" onclick="toggleCalculator('cgpa')">CGPA Calculator</button>
       <button class="toggle-btn" onclick="toggleCalculator('sgpareqtoggle')">SGPA Target Finder</button>
-  </div>
+    </div>
 
     <div class="main-container">
       <!-- SGPA Calculator Section -->
@@ -70,7 +70,17 @@
           <!-- Semester Number for Latest SGPA -->
           <div class="form-group">
             <label for="semesterForSgpa">Semester Number for Latest SGPA:</label>
-            <input type="number" id="semesterForSgpa" min="1" max="8" placeholder="e.g., 5" required />
+            <select id="semesterForSgpa" required>
+              <option value="" selected disabled>Select a semester</option>
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <option value="3">Semester 3</option>
+              <option value="4">Semester 4</option>
+              <option value="5">Semester 5</option>
+              <option value="6">Semester 6</option>
+              <option value="7">Semester 7</option>
+              <option value="8">Semester 8</option>
+            </select>
           </div>
       
           <!-- CGPA Up to Last Semester -->
@@ -106,7 +116,17 @@
           <!-- Current Semester Number-->
           <div class="form-group">
             <label for="semesterForSgpareq">Current semester:</label>
-            <input type="number" id="semesterForSgpareq" min="1" max="8" placeholder="e.g., 6" required />
+            <select id="semesterForSgpareq" required>
+              <option value="" selected disabled>Select a semester</option>
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <option value="3">Semester 3</option>
+              <option value="4">Semester 4</option>
+              <option value="5">Semester 5</option>
+              <option value="6">Semester 6</option>
+              <option value="7">Semester 7</option>
+              <option value="8">Semester 8</option>
+            </select>
           </div>
       
           <!-- Calculate Button -->
@@ -116,8 +136,7 @@
         <!-- SGPA Required Result Display -->
         <div id="sgpareq" class="sgpareq-result"></div>
       </div>
-  </div>
-
+    </div>
 
     <!-- Footer Section -->
     <footer class="footer">
