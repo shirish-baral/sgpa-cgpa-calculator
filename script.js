@@ -176,8 +176,26 @@ function calculateCGPA() {
     // Calculate total number of semesters (including the latest one)
     const totalSemesters = semesterForSgpa;
 
+    // Calculate old semesters credit 
+    let oldSemestersCredits = 0;
+    for (let i = 1; i < totalSemesters;i++){
+        const subjects = semesters[`${i}`];
+        for (const subject of subjects){
+            oldSemestersCredits += subject.credits;
+        }
+    }
+
+    // Calculate new semesters credit 
+    let newSemesterCredits = 0;
+    for(const subject of semesters[`${semesterForSgpa}`]){
+        newSemesterCredits += subject.credits;
+    }
+
+    // Calculate total semester credits
+    const totalSemesterscredits = oldSemestersCredits + newSemesterCredits;
+
     // Calculate CGPA using the formula:
-    const newCgpa = (previousCgpa * (totalSemesters - 1) + newSemesterSgpa) / totalSemesters;
+    const newCgpa = ((previousCgpa * oldSemestersCredits) + (newSemesterSgpa * newSemesterCredits) ) / totalSemesterscredits;
 
     // Display the result with updated styling
     const cgpaOutput = `
