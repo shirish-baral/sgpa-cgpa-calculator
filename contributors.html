@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Contributors</title>
+    <link rel="stylesheet" href="contributors.css">
+</head>
+<body>
+
+    <header>
+        <h1>Our Contributors</h1>
+    </header>
+    <main>
+        <div class="contributor">
+            <div class="contributor-header">
+                <h2>John Doe</h2>
+                <button class="toggle-button">&#x25BC;</button>
+            </div>
+            <div class="contribution-description">
+                <p>John has contributed by developing the core architecture of the project, implementing the backend APIs, and setting up CI/CD pipelines.</p>
+            </div>
+        </div>
+
+        <div class="contributor">
+            <div class="contributor-header">
+                <h2>Jane Smith</h2>
+                <button class="toggle-button">&#x25BC;</button>
+            </div>
+            <div class="contribution-description">
+                <p>Jane focused on front-end development, enhancing UI/UX, and creating reusable React components for the project.</p>
+            </div>
+        </div>
+
+        <div class="contributor">
+            <div class="contributor-header">
+                <h2>Alex Brown</h2>
+                <button class="toggle-button">&#x25BC;</button>
+            </div>
+            <div class="contribution-description">
+                <p>Alex contributed by writing extensive test cases, ensuring high code quality, and providing documentation for the project.</p>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.querySelectorAll('.toggle-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const description = button.parentElement.nextElementSibling;
+                description.style.display = description.style.display === 'block' ? 'none' : 'block';
+                button.textContent = button.textContent === '\u25BC' ? '\u25B2' : '\u25BC';
+            });
+        });
+    </script>
+</body>
+</html>

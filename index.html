@@ -1,131 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGPA & CGPA Calculator</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="heading.css" />
-  </head>
-  <div>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="heading.css">
+    <style>
+      @media only screen and (min-width: 590px){
+        .header .logo a img{
+          display: flex !important;
+          justify-content: center;
+          align-items: center;
+        }
+        .header .github-icon a img{
+          display: flex !important;
+          justify-content: center;
+          align-items: center;
+        }
+       
+      }
+    </style>
+</head>
+<body>
     <!-- Header Section -->
     <div class="header">
-      <div class="logo">
-        <a href="#"><img src="./images/logo.webp" alt="Logo" class="logo" /></a>
-      </div>
-      <div class="title">
-        <div>SGPA and CGPA Calculator</div>
-      </div>
-      <div class="github-icon">
-        <a href="https://github.com/shirish-baral/sgpa-cgpa-calculator.git" target="_blank">
-          <img src="./images/github.webp" alt="GitHub" />
-        </a>
-      </div>
+        <div class="logo">
+            <a href="#"><img src="./images/logo.webp" alt="Logo" class="logo"></a>
+        </div>
+        <div class="title">
+            <div>Calculate Your GPA at your Ease</div>
+        </div>
+        <div class="github-icon">
+            <a href="https://github.com/shirish-baral/sgpa-cgpa-calculator.git" target="_blank">
+                <img src="./images/github.webp" alt="GitHub">
+            </a>
+        </div>
     </div>
     <div class="below-text">For BTech(CSE) at KIIT University</div>
 
     <!-- Calculator Toggle -->
     <div class="toggle-container">
-      <button class="toggle-btn active" onclick="toggleCalculator('sgpa')">SGPA Calculator</button>
-      <button class="toggle-btn" onclick="toggleCalculator('cgpa')">CGPA Calculator</button>
-      <button class="toggle-btn" onclick="toggleCalculator('sgpareqtoggle')">SGPA Target Finder</button>
-  </div>
+        <button class="toggle-btn active" onclick="toggleCalculator('sgpa')">SGPA Calculator</button>
+        <button class="toggle-btn" onclick="toggleCalculator('cgpa')">CGPA Calculator</button>
+        <button class="toggle-btn" onclick="toggleCalculator('sgpareqtoggle')">SGPA Target Finder</button>
+    </div>
 
     <div class="main-container">
-      <!-- SGPA Calculator Section -->
-      <div class="container" id="sgpa-calculator">
-        <h2>SGPA Calculator</h2>
-        <form id="sgpaForm">
-          <h3>Select Semester</h3>
-          <select id="semesterSelect" onchange="showSemesterSubjects()">
-            <option value="" selected disabled>Select a semester</option>
-            <option value="1">Semester 1</option>
-            <option value="2">Semester 2</option>
-            <option value="3">Semester 3</option>
-            <option value="4">Semester 4</option>
-            <option value="5">Semester 5</option>
-            <option value="6">Semester 6</option>
-            <option value="7">Semester 7</option>
-            <option value="8">Semester 8</option>
-          </select>
-          <!-- Dynamic grade selection table will be inserted here -->
-          <div id="semesters"></div>
-          <button type="button" id="calculateButton" onclick="calculateSGPA()">
-            Calculate SGPA
-          </button>
-          <div id="result" class="result"></div>
-        </form>
-      </div>
+        <!-- SGPA Calculator Section -->
+        <div class="container" id="sgpa-calculator">
+            <h2>SGPA Calculator</h2>
+            <form id="sgpaForm">
+                <h3>Select Semester</h3>
+                <select id="semesterSelect" onchange="showSemesterSubjects()">
+                    <option value="" selected disabled>Select a semester</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+                </select>
+                <!-- Dynamic grade selection table will be inserted here -->
+                <div id="semesters"></div>
+                <button type="button" id="calculateButton" onclick="calculateSGPA()">Calculate SGPA</button>
+                <div id="result" class="result"></div>
+            </form>
+        </div>
 
-      <!-- CGPA Calculator Section (Initially Hidden) -->
-      <div class="container hidden" id="cgpa-container">
-        <h2>CGPA Calculator</h2>
-        <form id="cgpaForm">
-          <!-- New Semester SGPA -->
-          <div class="form-group">
-            <label for="newSemesterSgpa">New Semester SGPA:</label>
-            <input type="number" id="newSemesterSgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72" required />
-          </div>
-      
-          <!-- Semester Number for Latest SGPA -->
-          <div class="form-group">
-            <label for="semesterForSgpa">Semester Number for Latest SGPA:</label>
-            <input type="number" id="semesterForSgpa" min="1" max="8" placeholder="e.g., 6" required />
-          </div>
-      
-          <!-- CGPA Up to Last Semester -->
-          <div class="form-group">
-            <label for="previousCgpa">CGPA Up to Last Semester:</label>
-            <input type="number" id="previousCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.5 up to 5th semester" required />
-          </div>
-      
-          <!-- Calculate Button -->
-          <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
-        </form>
-      
-        <!-- CGPA Result Display -->
-        <div id="cgpaResult" class="cgpa-result"></div>
-      </div>
+        <!-- CGPA Calculator Section (Initially Hidden) -->
+        <div class="container hidden" id="cgpa-container">
+            <h2>CGPA Calculator</h2>
+            <form id="cgpaForm">
+                <!-- New Semester SGPA -->
+                <div class="form-group">
+                    <label for="newSemesterSgpa">New Semester SGPA:</label>
+                    <input type="number" id="newSemesterSgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72" required>
+                </div>
 
-      <!-- Required SGPA Calculator Section (Initially Hidden) -->
-      <div class="container hidden" id="sgpareq-container">
-        <h2>SGPA Target Finder</h2>
-        <form id="sgpareqForm">
-          <!-- Current Semester CGPA -->
-          <div class="form-group">
-            <label for="currentCgpa">Current CGPA:</label>
-            <input type="number" id="currentCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72" required />
-          </div>
-      
-          <!-- Target CGPA -->
-          <div class="form-group">
-            <label for="requiredCgpa">Target CGPA:</label>
-            <input type="number" id="requiredCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.5 up to 5th semester" required />
-          </div>
+                <!-- Semester Number for Latest SGPA -->
+                <div class="form-group">
+                    <label for="semesterForSgpa">Semester Number for Latest SGPA:</label>
+                    <input type="number" id="semesterForSgpa" min="1" max="8" placeholder="e.g., 6" required>
+                </div>
 
-          <!-- Current Semester Number-->
-          <div class="form-group">
-            <label for="semesterForSgpareq">Current semester:</label>
-            <input type="number" id="semesterForSgpareq" min="1" max="8" placeholder="e.g., 6" required />
-          </div>
-      
-          <!-- Calculate Button -->
-          <button type="button" onclick="calculateReqSgpa()">Calculate Required SGPA</button>
-        </form>
-      
-        <!-- SGPA Required Result Display -->
-        <div id="sgpareq" class="sgpareq-result"></div>
-      </div>
-  </div>
+                <!-- CGPA Up to Last Semester -->
+                <div class="form-group">
+                    <label for="previousCgpa">CGPA Up to Last Semester:</label>
+                    <input type="number" id="previousCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.5 up to 5th semester" required>
+                </div>
 
+                <!-- Calculate Button -->
+                <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
+            </form>
+
+            <!-- CGPA Result Display -->
+            <div id="cgpaResult" class="cgpa-result"></div>
+        </div>
+
+        <!-- Required SGPA Calculator Section (Initially Hidden) -->
+        <div class="container hidden" id="sgpareq-container">
+            <h2>SGPA Target Finder</h2>
+            <form id="sgpareqForm">
+                <!-- Current Semester CGPA -->
+                <div class="form-group">
+                    <label for="currentCgpa">Current CGPA:</label>
+                    <input type="number" id="currentCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72" required>
+                </div>
+
+                <!-- Target CGPA -->
+                <div class="form-group">
+                    <label for="requiredCgpa">Target CGPA:</label>
+                    <input type="number" id="requiredCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.5 up to 5th semester" required>
+                </div>
+
+                <!-- Current Semester Number-->
+                <div class="form-group">
+                    <label for="semesterForSgpareq">Current semester:</label>
+                    <input type="number" id="semesterForSgpareq" min="1" max="8" placeholder="e.g., 6" required>
+                </div>
+
+                <!-- Calculate Button -->
+                <button type="button" onclick="calculateReqSgpa()">Calculate Required SGPA</button>
+            </form>
+
+            <!-- SGPA Required Result Display -->
+            <div id="sgpareq" class="sgpareq-result"></div>
+        </div>
+    </div>
 
     <!-- Footer Section -->
     <footer class="footer">
         <p>&copy; ShirishBaral 2025</p>
         <p>This project is <a href="https://github.com/shirish-baral/sgpa-cgpa-calculator.git" target="_blank">open source</a>. Contributions are welcome!</p>
+        <a href="/contributors.html">Our Contributors</a>
     </footer>
 
     <!-- Scripts -->
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

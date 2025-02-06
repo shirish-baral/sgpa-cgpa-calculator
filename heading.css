@@ -7,17 +7,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10px;
-    background-color: #f1fefe;
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
     width: 100%;
-    
+    box-sizing: border-box;
 }
 
 .github-icon {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .github-icon a {
@@ -35,16 +35,15 @@
 .title {
     flex-grow: 1;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2em;
     font-weight: bold;
-    color: #333;
-    color: #007BFF; 
+    color: white;
 }
 
 .logo {
     width: 50px;
     height: 50px;
-    margin-left: 17px;
+    margin-left: 15px;
 }
 .below-text{
     color: #007BFF; 
@@ -53,19 +52,19 @@
 }
 .logo img{
     border-radius: 50%;
+    height: 40px;
 }
 .footer {
-    padding: 10px;
+    padding: 20px;
     text-align: center;
-    background-color: #f4f4f4;
-    border-top: 1px solid #ddd;
-    font-size: 1rem;
-    color: #555;
+    background-color: #007BFF;
+    color: white;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .footer a {
-    color: #007bff;
+    color: #ffcc00;
     text-decoration: none;
     font-weight: bold;
 }
@@ -81,16 +80,23 @@
     .header {
       flex-direction: column; /* Stack items vertically */
       align-items: center; /* Center-align items */
-      padding: 10px;
+      /* padding: 10px; */
     }
   
     .github-icon {
       margin-right: 0; /* Remove margin to fit better on small screens */
       margin-top: 10px; /* Add spacing for vertical layout */
+      justify-content: center; /* Center-align GitHub icon */
     }
   
     .title {
       font-size: 1.2rem; /* Reduce font size for smaller screens */
+    }
+  
+    .logo {
+      margin-left: 0; /* Remove left margin for better alignment */
+      margin-bottom: 10px; /* Add bottom margin for spacing */
+      justify-content: center; /* Center-align logo */
     }
   
     .logo img {
@@ -103,4 +109,3 @@
       text-align: center; /* Center-align text */
     }
   }
-  
