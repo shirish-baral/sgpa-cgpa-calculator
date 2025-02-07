@@ -8,8 +8,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #f1fefe;
+    color: #007BFF;
     width: 100%;
     box-sizing: border-box;
 }
@@ -37,7 +37,7 @@
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
-    color: white;
+    color: #007BFF;
 }
 
 .logo {
