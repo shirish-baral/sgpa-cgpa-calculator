@@ -1,60 +1,103 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #eef2f7;
     color: #333;
 }
-
 header {
-    background-color: #52a1fc;
+    background: linear-gradient(to right, #007bff, #00c6ff);
     color: white;
     text-align: center;
-    padding: 1em 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.5em 0; /* Reduce padding */
+    font-size: 1.5em; /* Reduce font size */
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+header h1 {
+    font-size: 1.6em; /* Reduce text size */
+    margin: 0;
+}
+
+
 main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 10px;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 15px;
 }
 
 .contributor {
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 10px 0;
-    padding: 15px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 15px 0;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.contributor:hover {
+    transform: translateY(-5px);
 }
 
 .contributor-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.contributor-header h2 {
+.contributor-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+h2 a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+h2 a:hover {
+    color: #0056b3;
+    text-decoration: underline;
 }
 
 .toggle-button {
     background: none;
     border: none;
-    font-size: 1.2em;
+    font-size: 1.5em;
     cursor: pointer;
-    color: #52a1fc;
+    color: #007bff;
     transition: color 0.3s;
 }
 
-
+.toggle-button:hover {
+    color: #0056b3;
+}
 
 .contribution-description {
-    margin-top: 10px;
-    display: none;
-    font-size: 0.95em;
-    line-height: 1.5;
+    margin-top: 15px;
+    font-size: 1em;
+    line-height: 1.6;
     color: #555;
+    display: none;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    transition: max-height 0.3s ease-in-out;
 }
