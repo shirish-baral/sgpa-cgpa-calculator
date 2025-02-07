@@ -41,9 +41,9 @@
 
     <!-- Calculator Toggle -->
     <div class="toggle-container">
-        <button class="toggle-btn active" onclick="toggleCalculator('sgpa')">SGPA Calculator</button>
-        <button class="toggle-btn" onclick="toggleCalculator('cgpa')">CGPA Calculator</button>
-        <button class="toggle-btn" onclick="toggleCalculator('sgpareqtoggle')">SGPA Target Finder</button>
+<button class="toggle-btn active" onclick="toggleCalculator('sgpa')">SGPA Calculator</button>
+<button class="toggle-btn" onclick="toggleCalculator('cgpa')">CGPA Calculator</button>
+<button class="toggle-btn" onclick="toggleCalculator('sgpareqtoggle')">SGPA Target Finder</button>
     </div>
 
     <div class="main-container">
@@ -91,44 +91,85 @@
                     <label for="previousCgpa">CGPA Up to Last Semester:</label>
                     <input type="number" id="previousCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.5 up to 5th semester" required>
                 </div>
-
-                <!-- Calculate Button -->
-                <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
-            </form>
-
-            <!-- CGPA Result Display -->
-            <div id="cgpaResult" class="cgpa-result"></div>
+<!-- CGPA Calculator Section (Initially Hidden) -->
+<div class="container hidden" id="cgpa-container">
+    <h2>CGPA Calculator</h2>
+    <form id="cgpaForm">
+        <!-- New Semester SGPA -->
+        <div class="form-group">
+            <label for="newSemesterSgpa">New Semester SGPA:</label>
+            <input type="number" id="newSemesterSgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72" required />
         </div>
 
-        <!-- Required SGPA Calculator Section (Initially Hidden) -->
-        <div class="container hidden" id="sgpareq-container">
-            <h2>SGPA Target Finder</h2>
-            <form id="sgpareqForm">
-                <!-- Current Semester CGPA -->
-                <div class="form-group">
-                    <label for="currentCgpa">Current CGPA:</label>
-                    <input type="number" id="currentCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.72" required>
-                </div>
-
-                <!-- Target CGPA -->
-                <div class="form-group">
-                    <label for="requiredCgpa">Target CGPA:</label>
-                    <input type="number" id="requiredCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.5 up to 5th semester" required>
-                </div>
-
-                <!-- Current Semester Number-->
-                <div class="form-group">
-                    <label for="semesterForSgpareq">Current semester:</label>
-                    <input type="number" id="semesterForSgpareq" min="1" max="8" placeholder="e.g., 6" required>
-                </div>
-
-                <!-- Calculate Button -->
-                <button type="button" onclick="calculateReqSgpa()">Calculate Required SGPA</button>
-            </form>
-
-            <!-- SGPA Required Result Display -->
-            <div id="sgpareq" class="sgpareq-result"></div>
+        <!-- Semester Number for Latest SGPA -->
+        <div class="form-group">
+            <label for="semesterForSgpa">Semester Number for Latest SGPA:</label>
+            <select id="semesterForSgpa" required>
+                <option value="" selected disabled>Select a semester</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+            </select>
         </div>
+
+        <!-- CGPA Up to Last Semester -->
+        <div class="form-group">
+            <label for="previousCgpa">CGPA Up to Last Semester:</label>
+            <input type="number" id="previousCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.29 (up to 4th semester)" required />
+        </div>
+
+        <!-- Calculate Button -->
+        <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
+    </form>
+
+    <!-- CGPA Result Display -->
+    <div id="cgpaResult" class="cgpa-result"></div>
+</div>
+
+<!-- Required SGPA Calculator Section (Initially Hidden) -->
+<div class="container hidden" id="sgpareq-container">
+    <h2>SGPA Target Finder</h2>
+    <form id="sgpareqForm">
+        <!-- Current Semester CGPA -->
+        <div class="form-group">
+            <label for="currentCgpa">Current CGPA:</label>
+            <input type="number" id="currentCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.33 (up to 5th semester)" required />
+        </div>
+
+        <!-- Target CGPA -->
+        <div class="form-group">
+            <label for="requiredCgpa">Target CGPA:</label>
+            <input type="number" id="requiredCgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.5 (after 6th semester)" required />
+        </div>
+
+        <!-- Current Semester Number-->
+        <div class="form-group">
+            <label for="semesterForSgpareq">Current semester:</label>
+            <select id="semesterForSgpareq" required>
+                <option value="" selected disabled>Select a semester</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+            </select>
+        </div>
+
+        <!-- Calculate Button -->
+        <button type="button" onclick="calculateReqSgpa()">Calculate Required SGPA</button>
+    </form>
+
+    <!-- SGPA Required Result Display -->
+    <div id="sgpareq" class="sgpareq-result"></div>
+</div>
     </div>
 
     <!-- Footer Section -->

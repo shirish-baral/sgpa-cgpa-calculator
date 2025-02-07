@@ -418,11 +418,33 @@ table td {
 
     .hidden {
         display: none;
-    }
+    }.main-container {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px; /* Add margin to separate from header */
+}
 
-    .main-container {
-        width: 100%;
-        padding: 10px;
-        margin-top: 20px; /* Add margin to separate from header */
+/* General input field and select styles for consistency */
+select {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em; /* Ensure readability on mobile */
+}
+
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 768px) {
+    select {
+        font-size: 0.9em; /* Slightly smaller font on mobile */
     }
 }
+
+@media (max-width: 480px) {
+    select {
+        font-size: 0.8em; /* Even smaller font on very small screens */
+    }
+}
+

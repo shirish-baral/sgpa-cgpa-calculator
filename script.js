@@ -168,7 +168,7 @@ function calculateCGPA() {
     const previousCgpa = parseFloat(document.getElementById('previousCgpa').value);
 
     // Validate inputs
-    if (isNaN(newSemesterSgpa) || isNaN(semesterForSgpa) || isNaN(previousCgpa)) {
+    if (isNaN(newSemesterSgpa) || !semesterForSgpa || isNaN(previousCgpa)) {
         alert('Please fill in all fields correctly.');
         return;
     }
@@ -206,14 +206,14 @@ function calculateCGPA() {
     document.getElementById('cgpaResult').innerHTML = cgpaOutput;
 }
 
-function calculateReqSgpa(){
+function calculateReqSgpa() {
     // Get input values
     const currentCgpa = parseFloat(document.getElementById('currentCgpa').value);
     const requiredCgpa = parseFloat(document.getElementById('requiredCgpa').value);
-    const semesterForSgpa = parseFloat(document.getElementById('semesterForSgpareq').value);  
+    const semesterForSgpa = parseInt(document.getElementById('semesterForSgpareq').value);
 
     // Validate inputs
-    if (isNaN(currentCgpa) || isNaN(requiredCgpa) || isNaN(semesterForSgpa)) {
+    if (isNaN(currentCgpa) || isNaN(requiredCgpa) || !semesterForSgpa) {
         alert('Please fill in all fields correctly.');
         return;
     }
@@ -221,47 +221,62 @@ function calculateReqSgpa(){
     // Calculate Total Cumulative Credits of current and last Semester
     let totalCumulativeCredits = 0;
     let totalCumulativeCreditsLastSem = 0;
-    for(let i = 1; i <= semesterForSgpa; i++){
-        const subjects = semesters[`${i}`]
-        for(const subject of subjects){
+    for (let i = 1; i <= semesterForSgpa; i++) {
+        const subjects = semesters[`${i}`];
+        for (const subject of subjects) {
             totalCumulativeCredits += subject.credits;
-            if( i != semesterForSgpa){
+            if (i != semesterForSgpa) {
                 totalCumulativeCreditsLastSem += subject.credits;
             }
         }
     }
 
-
-    // Calculate Required Cummulative Credits
-    const requiredCumulativeCredits = Math.round(totalCumulativeCredits  * requiredCgpa);
+    // Calculate Required Cumulative Credits
+    const requiredCumulativeCredits = Math.round(totalCumulativeCredits * requiredCgpa);
 
     // Calculate Required Credits
-    const requiredCredits = requiredCumulativeCredits - Math.round(currentCgpa * totalCumulativeCreditsLastSem );
+    const requiredCredits = requiredCumulativeCredits - Math.round(currentCgpa * totalCumulativeCreditsLastSem);
 
     // Calculate Current Credits
-    const currentCredits = (totalCumulativeCredits - totalCumulativeCreditsLastSem)/10;
+    const currentCredits = (totalCumulativeCredits - totalCumulativeCreditsLastSem) / 10;
 
     // Calculate Required SGPA
-    const requiredSgpa = requiredCredits/currentCredits / 10;
+    const requiredSgpa = requiredCredits / currentCredits / 10;
 
     let sgpaReqOutput = '';
-    if(requiredSgpa <= 10){
-    sgpaReqOutput = `
-        <div class="sgpareq-result">
-            <div>You need ${requiredSgpa.toFixed(2)} in ${semesterForSgpa}th Semester to get ${requiredCgpa} CGPA</span></div>
-        </div>
-    `;
-    }else{
+
+    // Handle negative required SGPA case
+    if (requiredSgpa < 0) {
+        alert('The required SGPA is negative. Re-enter your Target CGP!');
         sgpaReqOutput = `
-        <div class="sgpareq-result">
-            <div>Required CGPA not achievable this semester.</span></div>
-        </div>
-    `;        
+            <div class="sgpareq-result">
+                <div>Target CGPA cannot be attained this semester.</div>
+            </div>
+        `;
+        document.getElementById('sgpareq').innerHTML = sgpaReqOutput;
+        return;
     }
 
-    document.getElementById('sgpareq').innerHTML = sgpaReqOutput;    
+    // Handle required SGPA exceeding 10 case
+    if (requiredSgpa > 10) {
+        alert('The required SGPA is more than 10.0. Re-enter your Target CGPA');
+        sgpaReqOutput = `
+            <div class="sgpareq-result">
+                <div>Target CGPA cannot be attained this semester.</div>
+            </div>
+        `;
+        document.getElementById('sgpareq').innerHTML = sgpaReqOutput;
+        return;
+    }
 
+    // Display the required SGPA if achievable
+    sgpaReqOutput = `
+        <div class="sgpareq-result">
+            <div>You need ${requiredSgpa.toFixed(2)} in ${semesterForSgpa}th Semester to get ${requiredCgpa} CGPA</div>
+        </div>
+    `;
 
+    document.getElementById('sgpareq').innerHTML = sgpaReqOutput;
 }
 
 // Function to toggle between SGPA and CGPA calculators
@@ -285,7 +300,7 @@ function toggleCalculator(type) {
         buttons[0].classList.remove('active');
         buttons[1].classList.add('active');
         buttons[2].classList.remove('active');
-    }else{
+    } else {
         sgpaCalc.classList.add('hidden');
         cgpaCalc.classList.add('hidden');
         sgpaReqCalc.classList.remove('hidden');
