@@ -282,10 +282,9 @@ function calculateReqSgpa() {
 // Function to toggle between SGPA and CGPA calculators
 function toggleCalculator(type) {
     const sgpaCalc = document.getElementById('sgpa-calculator');
-    const cgpaCalc = document.getElementById('cgpa-container');
-    const sgpaReqCalc = document.getElementById('sgpareq-container');
-    const buttons = document.querySelectorAll('.toggle-btn');
-
+const cgpaCalc = document.getElementById('cgpa-container');
+const sgpaReqCalc = document.getElementById('sgpareq-container');
+const buttons = document.querySelectorAll('.toggle-btn');
     if (type === 'sgpa') {
         sgpaCalc.classList.remove('hidden');
         cgpaCalc.classList.add('hidden');
@@ -300,13 +299,13 @@ function toggleCalculator(type) {
         buttons[0].classList.remove('active');
         buttons[1].classList.add('active');
         buttons[2].classList.remove('active');
-    } else {
+    } else if (type === 'sgpareq') { // Fixed identifier
         sgpaCalc.classList.add('hidden');
         cgpaCalc.classList.add('hidden');
-        sgpaReqCalc.classList.remove('hidden');
+        sgpaReqCalc.classList.remove('hidden'); // Now correctly unhides SGPA Target Finder
         buttons[0].classList.remove('active');
         buttons[1].classList.remove('active');
-        buttons[2].classList.add('active');       
+        buttons[2].classList.add('active');
     }
 }
 
