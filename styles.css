@@ -10,9 +10,12 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
+    /* padding-top: 60px;  */
+    /* padding-bottom: 60px;  */
 }
 
-/* Header Section */
+/* Remove Header Section */
+/*
 .header {
     display: flex;
     justify-content: space-between;
@@ -32,12 +35,13 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     text-align: center;
-    flex-grow: 1; /* Allow title to take available space */
+    flex-grow: 1; 
 }
 
 .header .github-icon img {
     height: 30px;
 }
+*/
 
 .below-text {
     text-align: center;
@@ -111,6 +115,7 @@ body {
     max-width: 600px;
     padding: 20px;
     box-sizing: border-box;
+    margin-top: 20px; /* Add margin to separate from header */
 }
 
 /* Calculator Containers */
@@ -253,7 +258,8 @@ table td {
     font-weight: bold;
 }
 
-/* Footer Section */
+/* Remove Footer Section */
+/*
 .footer {
     text-align: center;
     padding: 20px;
@@ -272,6 +278,7 @@ table td {
 .footer a:hover {
     text-decoration: underline;
 }
+*/
 
 .hidden {
     display: none;
@@ -284,7 +291,7 @@ table td {
     }
 
     .header .github-icon img {
-        height: 25px;
+        /* height: 25px; */
     }
 
     .below-text {
@@ -335,6 +342,12 @@ table td {
     .hidden {
         display: none;
     }
+
+    .main-container {
+        width: 95%;
+        padding: 15px;
+        margin-top: 20px; /* Add margin to separate from header */
+    }
 }
 
 @media (max-width: 480px) {
@@ -342,9 +355,9 @@ table td {
         font-size: 0.9em;
     }
 
-    .header .github-icon img {
+    /* .header .github-icon img {
         height: 20px;
-    }
+    } */
 
     .below-text {
         font-size: 0.7em;
@@ -402,10 +415,15 @@ table td {
         width: 100%;
         margin: 0;
     }
+
     .hidden {
         display: none;
-    }
+    }.main-container {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px; /* Add margin to separate from header */
 }
+
 /* General input field and select styles for consistency */
 select {
     width: calc(100% - 20px);
@@ -429,3 +447,4 @@ select {
         font-size: 0.8em; /* Even smaller font on very small screens */
     }
 }
+

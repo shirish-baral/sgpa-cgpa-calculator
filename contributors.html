@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Contributors</title>
+    <link rel="stylesheet" href="contributors.css">
+</head>
+<body>
+    <header>
+        <h1>Our Contributors</h1>
+    </header>
+    <main>
+        <div class="contributor">
+            <div class="contributor-header">
+                <div class="contributor-info">
+                    <img src="https://github.com/shirish-baral.png" alt="Shirish Baral" class="profile-pic">
+                    <h2><a href="https://github.com/shirish-baral" target="_blank">Shirish Baral</a></h2>
+                </div>
+                <button class="toggle-button">&#x25BC;</button>
+            </div>
+            <div class="contribution-description">
+                <p>Shirish originated the project idea and built its foundation, including the core mathematical calculations for SGPA and CGPA. He developed the initial webpage, hosted the repository, and actively reviews pull requests and merges contributions.</p>
+            </div>
+        </div>
+    
+        <div class="contributor">
+            <div class="contributor-header">
+                <div class="contributor-info">
+                    <img src="https://github.com/Aayushsah6969.png" alt="Aayush Kumar" class="profile-pic">
+                    <h2><a href="https://github.com/Aayushsah6969" target="_blank">Aayush Kumar</a></h2>
+                </div>
+                <button class="toggle-button">&#x25BC;</button>
+            </div>
+            <div class="contribution-description">
+                <p>Aayush enhanced the project by adding a header and footer, along with a hyperlink to the GitHub repository for contributions. He also proposed making the project open-source and introduced the contributors list.</p>
+            </div>
+        </div>
+    
+        <div class="contributor">
+            <div class="contributor-header">
+                <div class="contributor-info">
+                    <img src="https://github.com/gaudeltheg.png" alt="Abhinav Gaudel" class="profile-pic">
+                    <h2><a href="https://github.com/gaudeltheg" target="_blank">Abhinav Gaudel</a></h2>
+                </div>
+                <button class="toggle-button">&#x25BC;</button>
+            </div>
+            <div class="contribution-description">
+                <p>Abhinav improved the UI/UX of the webpage, making it more visually appealing and mobile-friendly for a better user experience.</p>
+            </div>
+        </div>
+    
+        <div class="contributor">
+            <div class="contributor-header">
+                <div class="contributor-info">
+                    <img src="https://github.com/ChirayuSharmaWork.png" alt="Chirayu Sharma" class="profile-pic">
+                    <h2><a href="https://github.com/ChirayuSharmaWork" target="_blank">Chirayu Sharma</a></h2>
+                </div>
+                <button class="toggle-button">&#x25BC;</button>
+            </div>
+            <div class="contribution-description">
+                <p>Chirayu implemented the SGPA Target Finder, allowing students to calculate the SGPA they need to achieve a desired CGPA.</p>
+            </div>
+        </div>
+    </main>
+    
+    </main>
+    
+        </main>
+        </main>
+    <script>
+        document.querySelectorAll('.toggle-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const description = button.parentElement.nextElementSibling;
+                description.style.display = description.style.display === 'block' ? 'none' : 'block';
+                button.textContent = button.textContent === '\u25BC' ? '\u25B2' : '\u25BC';
+            });
+        });
+    </script>
+</body>
+</html>
